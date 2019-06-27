@@ -64,27 +64,23 @@ yellow Pelican case. Please familiarise yourself with the content
 Chip 1
 ------
 
-Chip SN: 0x0494 Photopgraphs of the chip &lt;br /&gt; &lt;img
-src="%ATTACHURLPATH%/GLA\_Chip\_N1.jpg" alt="GLA\_Chip\_N1.jpg"
-width="640" height="480" /&gt;&lt;/verbatim&gt;
+Chip SN: 0x0494\
+Photopgraphs of the chip
+![0x0494](images/GLA_Chip_N1.jpg)
 
-Content of the Travel pack \#1 before shipping &lt;br /&gt; &lt;img
-src="%ATTACHURLPATH%/GLA\_CaseOpened\_N1.jpg"
-alt="GLA\_CaseOpened\_N1.jpg" width="640" height="850"
-/&gt;&lt;/verbatim&gt;
 
-Visual photo of the case before shipment &lt;br /&gt; &lt;img
-src="%ATTACHURLPATH%/GLA\_CaseToShip\_N1.jpg"
-alt="GLA\_CaseToShip\_N1.jpg" width="640" height="480"
-/&gt;&lt;/verbatim&gt;
+Content of the Travel pack \#1 before shipping
+![Travel pack before shipping](images/GLA_CaseOpened_N1.jpg)
+
+
+Visual photo of the case before shipment
+![Visual photo of the case before shipment](images/GLA_CaseToShip_N1.jpg)
 
 There is also a secret compartment under the foam. Please use at your
 discretion. I (Dima Maneuski) put DP to DP mini and power cable for
 Edinburgh there.
+![secret compartment](images/GLA_CaseSecret_N1.jpg)
 
-&lt;br /&gt; &lt;img src="%ATTACHURLPATH%/GLA\_CaseSecret\_N1.jpg"
-alt="GLA\_CaseSecret\_N1.jpg" width="640" height="480"
-/&gt;&lt;/verbatim&gt;
 
 Chip 2
 ------
@@ -150,13 +146,11 @@ Details of setups at each site can be found below:
 Programme FPGA
 ==============
 
-To programme the FPGA both for YARR and BDAQ system, Vivado is required
-and can be [downloaded for
+To programme the FPGA both for YARR and BDAQ system, Vivado is required and can be [downloaded for
 free](https://www.xilinx.com/support/download.html) (registration
 needed) as either Vivado Webpack or Vivado Lab.
 
-For YARR follow [this
-link](https://github.com/Yarr/Yarr-fw/blob/master/syn/xpressk7/README.md)
+For YARR follow [this link](https://github.com/Yarr/Yarr-fw/blob/master/syn/xpressk7/README.md)
 and for BDAQ follow [this
 link](https://gitlab.cern.ch/silab/bdaq53/wikis/Hardware/fpga-configuration).
 
@@ -184,7 +178,7 @@ generally, these steps are needed to be accomplished:
 -   Review acquired results
 
 To enjoy supplementary plotting scripts, install ROOT6 on your CentOS7
-PC \[ `sudo yum install root` \]. The scripts have to be compiled
+PC `sudo yum install root`. The scripts have to be compiled
 separately as shown
 [here](https://yarr.readthedocs.io/en/devel/rootscripts/). Now when you
 are back to this page, it is assumed that you managed to produce some
@@ -225,7 +219,7 @@ Several installation steps are needed, all detailed in the documentation
 -   Creation of the RD53A local database.
 -   Creation of the RD53A local database user.
 -   Creation of the RD53A local database chip configuration.
--   Running scans as usual but with database upload.
+-   Running scans as usual but with database up![Travel pack before shipping](images/GLA_CaseOpened_N1.jpg)load.
 
 BDAQ-based system
 -----------------
@@ -240,28 +234,29 @@ Test parameters
 Disclaimer: Only an overview of what needs to be done is provided here,
 use existing documentation to find how to do this.
 
-On module reception always check/set the correct configuration of the
-jumpers on the single chip card. Please cross-check the configuration of
-the SCC with [this
-document](https://twiki.cern.ch/twiki/pub/RD53/RD53ATesting/RD53A_SCC_Configuration.pdf).
+-	On module reception always check/set the correct configuration of the
+	jumpers on the single chip card. Please cross-check the configuration of
+	the SCC with [this
+	document](https://twiki.cern.ch/twiki/pub/RD53/RD53ATesting/RD53A_SCC_Configuration.pdf).
 
-Tests should be done at room temperature with the chip powered in LDO
-mode at 1.8V. Powering the chip to 1.8V in Direct Mode will likely to
-result in permanent damage.
+-	Tests should be done at room temperature with the chip powered in LDO
+	mode at 1.8V. Powering the chip to 1.8V in Direct Mode will likely to
+	result in permanent damage.
 
-Check that Iref is set to 4.0 uA: Remove the jumper labeled IREF IO,
-power up the chip (don't panic if the current consumption drops
-drastically) and measure the current between these pins. If necessary,
-set the 16-bit IREF TRIM jumpers. Remember to put back the IREF IO
-jumper.
+-	Check that Iref is set to 4.0 uA: Remove the jumper labeled IREF IO,
+	power up the chip (don't panic if the current consumption drops
+	drastically) and measure the current between these pins. If necessary,
+	set the 16-bit IREF TRIM jumpers. Remember to put back the IREF IO
+	jumper.
 
-Measure VDDA and VDDD and set them to 1.2V in the software as described
-below.
+-	Measure VDDA and VDDD and set them to 1.2V in the software as described
+	below.
 
-All three FE on the RD53A module is advised to be tuned. The tuning
-protocol is shown below. The threshold of all three FE can be tuned to
-1000e. This is the recommended value for the travelling module. The ToT
-should be tuned to 8BC at 10000e.
+-	All three FE on the RD53A module is advised to be tuned. The tuning
+	protocol is shown below. Please use the 5uA inner layer parameters for the chip configuration file.
+	The threshold of all three FE can be tuned to
+	1000e. This is the recommended value for the travelling module. The ToT
+	should be tuned to 8BC at 10000e.
 
 Testing protocol YARR
 =====================
@@ -347,20 +342,17 @@ Results review
 ==============
 
 Let's compare two threshold scans, before and after tuning.
+
 `YARR/src/data/19060100_diffFE_tune/01_before_tune/XXXX_diff_thresholdscan/TravelChip_sCurve-0_untuned.png`
 
--   Threshold scan of differential FE before tuning: &lt;br /&gt;
-    &lt;img src="%ATTACHURLPATH%/TravelChip\_sCurve-0\_untuned.png"
-    alt="TravelChip\_sCurve-0\_untuned.png" width="640" height="480"
-    /&gt;&lt;/verbatim&gt;
+-   Threshold scan of differential FE before tuning:
+	![before tuning](images/TravelChip_sCurve-0_untuned.png)
 
 `YARR/src/data/19060100_diffFE_tune/03_after_tune/XXXX_diff_thresholdscan/TravelChip_sCurve-0_tuned.png`
 
--   Threshold scan of differential FE after tuning: &lt;br /&gt; &lt;img
-    src="%ATTACHURLPATH%/TravelChip\_sCurve-0\_tuned.png"
-    alt="TravelChip\_sCurve-0\_tuned.png" width="640" height="480"
-    /&gt;&lt;/verbatim&gt;
-
+-   Threshold scan of differential FE after tuning:
+		![before tuning](images/TravelChip_sCurve-0_tuned.png)
+		
 Testing protocol BDAQ
 =====================
 
@@ -481,13 +473,3 @@ Troubleshooting
 Check [here](https://yarr.readthedocs.io/en/devel/troubleshooting/)
 first. If you cannot find your answers, try the [Mattermost
 channel](https://mattermost.web.cern.ch/itkpixel/channels/travellingmodule).
-
------ **Major updates**:\
--- Main.DzmitryManeuski - 2019-06-06
-
-[]{.twiki-macro .RESPONSIBLE} [\$wikiusername]{.twiki-macro .REVINFO
-rev="1.1"}\
-[]{.twiki-macro .REVIEW} **Never reviewed**
-
-[]{.twiki-macro .STOPINCLUDE}
-
