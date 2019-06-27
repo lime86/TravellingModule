@@ -1,0 +1,4 @@
+site_name: Travel Guide
+pages:
+    - Home: index.md
+theme: readthedocs
