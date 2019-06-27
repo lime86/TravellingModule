@@ -48,8 +48,8 @@ on the [wiki](https://gitlab.cern.ch/silab/bdaq53/wikis/home).
 Contact details
 ===============
 
-Please express interest in participation by filling this [Google
-spredsheet](https://docs.google.com/spreadsheets/d/1qtbo60B43QQgahlq0hG3hi0f7tpFaO4p044CMa54tGE/edit#gid=0).
+Please express interest in participation by filling this [Google spreadsheet](https://docs.google.com/spreadsheets/d/1qtbo60B43QQgahlq0hG3hi0f7tpFaO4p044CMa54tGE/edit#gid=0). Deadline is 28 June 2019.  
+The current schedule can be found [here](https://docs.google.com/spreadsheets/d/1uaxTqf-mSaBd6_UuOKpe0N2RLMPN3AFnNkIQ4CnIEUY/edit?usp=sharing). Please check for the correctness and if necessary, provide feedback.  
 On "Travel Pack" reception, please fill the table
 [here](https://twiki.cern.ch/twiki/bin/view/Atlas/ContactDetails). Also
 review the table once you completed work with the "Travelling Module".
@@ -239,8 +239,8 @@ use existing documentation to find how to do this.
 	the SCC with [this
 	document](https://twiki.cern.ch/twiki/pub/RD53/RD53ATesting/RD53A_SCC_Configuration.pdf).
 
--	Tests should be done at room temperature with the chip powered in LDO
-	mode at 1.8V. Powering the chip to 1.8V in Direct Mode will likely to
+-	Tests should be done at room temperature with the chip powered in *LDO*
+	mode at *1.8V*. Powering the chip to 1.8V in Direct Mode will likely to
 	result in permanent damage.
 
 -	Check that Iref is set to 4.0 uA: Remove the jumper labeled IREF IO,
@@ -249,14 +249,14 @@ use existing documentation to find how to do this.
 	set the 16-bit IREF TRIM jumpers. Remember to put back the IREF IO
 	jumper.
 
--	Measure VDDA and VDDD and set them to 1.2V in the software as described
+-	Measure *VDDA* and *VDDD* and set them to *1.2V* in the software as described
 	below.
 
 -	All three FE on the RD53A module is advised to be tuned. The tuning
 	protocol is shown below. Please use the 5uA inner layer parameters for the chip configuration file.
 	The threshold of all three FE can be tuned to
-	1000e. This is the recommended value for the travelling module. The ToT
-	should be tuned to 8BC at 10000e.
+	*1000e*. This is the recommended value for the travelling module. The ToT
+	should be tuned to *8BC* at *10000e*.
 
 Testing protocol YARR
 =====================
@@ -264,9 +264,9 @@ Testing protocol YARR
 Follow instructions
 [here](https://yarr.readthedocs.io/en/devel/scanconsole/).
 
-To adjust VDDA and VDDD to 1.2V, change SldoAnalogTrim and
-SldoDigitalTrim DACs in the chip config. If you still get "data not
-valid" errors, adjust VDDA so a value that this error disappears. Once
+To adjust VDDA and VDDD to 1.2V, change `SldoAnalogTrim` and
+`SldoDigitalTrim` DACs in the chip config. If you still get ```data not
+valid``` errors, adjust VDDA so a value that this error disappears. Once
 made sure that the module works, tune all FEs and save the results
 before and after tuning.
 
@@ -341,18 +341,18 @@ Post-tuning scans:
 Results review
 ==============
 
-Let's compare two threshold scans, before and after tuning.
-
+Let's compare two threshold scans, before and after tuning.  
 `YARR/src/data/19060100_diffFE_tune/01_before_tune/XXXX_diff_thresholdscan/TravelChip_sCurve-0_untuned.png`
 
--   Threshold scan of differential FE before tuning:
+-   Threshold scan of differential FE before tuning:  
 	![before tuning](images/TravelChip_sCurve-0_untuned.png)
 
 `YARR/src/data/19060100_diffFE_tune/03_after_tune/XXXX_diff_thresholdscan/TravelChip_sCurve-0_tuned.png`
 
 -   Threshold scan of differential FE after tuning:
 		![before tuning](images/TravelChip_sCurve-0_tuned.png)
-		
+
+
 Testing protocol BDAQ
 =====================
 
@@ -364,7 +364,7 @@ You can either execute with e.g. `bdaq53 scan_digital` or
 To adjust VDDA and VDDD to 1.2V, change `VREF_A_TRIM` and `VREF_D_TRIM`
 in the chip config. Once made sure that the module works, tune all FEs
 and save the results before and after tuning. For FE specific scans and
-tunings, adjust = 'start\_column'= and `'stop_column'` in the scan code
+tunings, adjust `'start\_column'` and `'stop_column'` in the scan code
 accordingly.
 
 For any tuning, the electron equivalence of injected charge is roughly
@@ -439,12 +439,13 @@ Post-tuning scans:
 
 ### Differential Front End tuning protocol
 
-Tuning: \* depending on the outcome of the pre-tuning threshold scan,
-adjust `Vthreshold_LIN` to target 2000e threshold. The [FE testing
-specification](https://twiki.cern.ch/twiki/pub/RD53/RD53ATesting/Diff_userguide.pdf)
-includes recommended values that might help in the choice of the DAC
-value.
+Tuning:
 
+-	depending on the outcome of the pre-tuning threshold scan,
+	adjust `Vthreshold_LIN` to target 2000e threshold. The [FE testing
+	specification](https://twiki.cern.ch/twiki/pub/RD53/RD53ATesting/Diff_userguide.pdf)
+	includes recommended values that might help in the choice of the DAC
+	value.
 -   diff thresholdscan
 -   repeat the steps above if necessary
 -   tune the pixel threshold `meta_tune_local_threshold.py`, adapt the
