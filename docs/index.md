@@ -219,7 +219,7 @@ Several installation steps are needed, all detailed in the documentation
 -   Creation of the RD53A local database.
 -   Creation of the RD53A local database user.
 -   Creation of the RD53A local database chip configuration.
--   Running scans as usual but with database up![Travel pack before shipping](images/GLA_CaseOpened_N1.jpg)load.
+-   Running scans as usual but with database upload.
 
 BDAQ-based system
 -----------------
