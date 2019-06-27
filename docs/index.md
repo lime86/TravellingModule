@@ -64,16 +64,16 @@ yellow Pelican case. Please familiarise yourself with the content
 Chip 1
 ------
 
-Chip SN: 0x0494\
-Photopgraphs of the chip
+Chip SN: 0x0494  
+Photopgraphs of the chip  
 ![0x0494](images/GLA_Chip_N1.jpg)
 
 
-Content of the Travel pack \#1 before shipping
+Content of the Travel pack \#1 before shipping  
 ![Travel pack before shipping](images/GLA_CaseOpened_N1.jpg)
 
 
-Visual photo of the case before shipment
+Visual photo of the case before shipment  
 ![Visual photo of the case before shipment](images/GLA_CaseToShip_N1.jpg)
 
 There is also a secret compartment under the foam. Please use at your
@@ -85,32 +85,32 @@ Edinburgh there.
 Chip 2
 ------
 
-Chip SN:
-Known peculiarities:
+Chip SN:  
+Known peculiarities:  
 
 Chip 3
 ------
 
-Chip SN:
-Known perculiarities:
+Chip SN:  
+Known perculiarities:  
 
 Module 1
 --------
 
-Chip SN:
-sensor information 
+Chip SN:  
+sensor information   
 Known peculiarities
 
 Module 2
 --------
-Chip SN:
-sensor information
+Chip SN:  
+sensor information  
 Known peculiarities
 
 Module 3
 --------
-Chip SN:
-sensor information
+Chip SN:  
+sensor information  
 Known perculiarities
 
 Experimental setup
