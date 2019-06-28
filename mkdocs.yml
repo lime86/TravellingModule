@@ -1,4 +1,6 @@
 site_name: Travel Guide
 pages:
     - Home: index.md
+    - Travel Pack: travelpack.md
+    - Travelling Module: content.md
 theme: readthedocs
