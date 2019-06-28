@@ -131,11 +131,11 @@ use existing documentation to find how to do this.
 	result in permanent damage.
 	
 -	The only registers that should be changed in the chip configuration file are
-	..- IREF (according to waferprobing data, via jumper)
-	..- VOLTAGE_TRIM (according to waferprobing data)
-	..- MON_BG_TRIM (according to waferprobing data)
-	..- VTH_SYNC, VThreshold_LIN, VTH1/2_DIFF (by threshold tuning procedure)
-	..- IBIAS_KRUM_SYNC, KRUM_CURR_LIN, VFF_DIFF (by ToT tuning procedure)
+	- IREF (according to waferprobing data, via jumper)
+	- VOLTAGE_TRIM (according to waferprobing data)
+	- MON_BG_TRIM (according to waferprobing data)
+	- VTH_SYNC, VThreshold_LIN, VTH1/2_DIFF (by threshold tuning procedure)
+	- IBIAS_KRUM_SYNC, KRUM_CURR_LIN, VFF_DIFF (by ToT tuning procedure)
 	The default chip configuration file will be uploaded here once the baseline and the default DAC values are fixed.
 
 -	Check that Iref is set to 4.0 uA: Remove the jumper labeled IREF IO,
