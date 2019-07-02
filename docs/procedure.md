@@ -1,4 +1,4 @@
-Test parameters
+Testing Parameters
 ===============
 Disclaimer: Only an overview of what needs to be done is provided here,
 use existing documentation to find how to do this.
@@ -27,7 +27,7 @@ use existing documentation to find how to do this.
 	jumper.
 
 -	Measure **VDDA** and **VDDD** and set them to **1.2V** in the according entries in the chip configuration file.
-	- For YARR: change `SldoAnalogTrim` and `SldoDigitalTrim`. If you still get ```data not valid``` errors, adjust VDDA to a value that this error disappears. More information in [FAQ & Troubleshooting](troubleshooting).
+	- For YARR: change `SldoAnalogTrim` and `SldoDigitalTrim`. If you still get ```data not valid``` errors, adjust VDDA to a value that this error disappears. More information in [FAQ & Troubleshooting](../troubleshooting).
 	- For BDAQ: change `VREF_A_TRIM` and `VREF_D_TRIM`.
 
 -	All three FE on the RD53A module is advised to be tuned. The tuning
