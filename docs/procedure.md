@@ -1,21 +1,19 @@
 Test parameters
 ===============
-https://cds.cern.ch/record/2658031
 Disclaimer: Only an overview of what needs to be done is provided here,
 use existing documentation to find how to do this.
 
 -	On module reception always check/set the correct configuration of the
 	jumpers on the single chip card. Please cross-check the configuration of
-	the SCC with [this
-	document](https://twiki.cern.ch/twiki/pub/RD53/RD53ATesting/RD53A_SCC_Configuration.pdf).
+	the SCC with [this document](https://twiki.cern.ch/twiki/pub/RD53/RD53ATesting/RD53A_SCC_Configuration.pdf) or [here](https://yarr.readthedocs.io/en/devel/rd53a/).
 
 -	Tests should be done at room temperature with the chip powered in **LDO**
-	mode at **1.8V**. Powering the chip to 1.8V in Direct Mode will likely to
-	result in permanent damage.
+	mode at **1.8V**. (In direct powering mode use maximum 1.3V, anything higher will likely to
+	result in permanent damage.)
 	
--	For the chip configuration please use the 5uA inner layer parameters.
+-	For the moment please use the default chip configuration file provided by the DAQ version you have. For YARR: [default_rd53a.json](files/default_rd53a.json), for BDAQ: [default_chip.yml](files/default_chip.yml)
 	The only registers that should be changed in the chip configuration file are
-	- IREF (according to waferprobing data, via jumper)
+	- IREF (according to waferprobing data, via jumper and trim bits)
 	- VOLTAGE_TRIM (according to waferprobing data)
 	- MON_BG_TRIM (according to waferprobing data)
 	- VTH_SYNC, VThreshold_LIN, VTH1/2_DIFF (by threshold tuning procedure)
@@ -28,8 +26,9 @@ use existing documentation to find how to do this.
 	set the 16-bit IREF TRIM jumpers. Remember to put back the IREF IO
 	jumper.
 
--	Measure **VDDA** and **VDDD** and set them to **1.2V** in the software as described
-	below.
+-	Measure **VDDA** and **VDDD** and set them to **1.2V** in the according entries in the chip configuration file.
+	- For YARR: change `SldoAnalogTrim` and `SldoDigitalTrim`. If you still get ```data not valid``` errors, adjust VDDA to a value that this error disappears. More information in [FAQ & Troubleshooting](troubleshooting).
+	- For BDAQ: change `VREF_A_TRIM` and `VREF_D_TRIM`.
 
 -	All three FE on the RD53A module is advised to be tuned. The tuning
 	protocol is shown below. 
@@ -43,10 +42,7 @@ Testing protocol YARR
 Follow instructions
 [here](https://yarr.readthedocs.io/en/devel/scanconsole/).
 
-To adjust VDDA and VDDD to 1.2V, change `SldoAnalogTrim` and
-`SldoDigitalTrim` DACs in the chip config. If you still get ```data not
-valid``` errors, adjust VDDA so a value that this error disappears. Once
-made sure that the module works, tune all FEs and save the results
+Once made sure that the module works, tune all FEs and save the results
 before and after tuning.
 
 Synchronous Front End tuning protocol

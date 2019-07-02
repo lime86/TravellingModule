@@ -1,0 +1,65 @@
+# Chip configuration file
+general:
+  chip_sn          : '0x0000'
+  chip_id          : 8
+
+# Default trimbit values gained from statistical analysis.
+# If you need more exact values, please trim your individual chip.
+trim:
+  VREF_A_TRIM      : 24
+  VREF_D_TRIM      : 23
+  MON_BG_TRIM      : 12
+  MON_ADC_TRIM     : 5
+
+# Default calibration values should be ok to get an order of magnitude reading.
+# If you need more exact measurements, please calibrate your individual chip.
+calibration:
+  ADC_a            : 0.2     # Conversion factors ADC counts - voltage: slope
+  ADC_b            : 15.5    # Conversion factors ADC counts - voltage: offset
+  Nf               : 1.24    # Chip specific conversion factor for on-chip T sensors: voltage - temperature
+
+  # Default charge calibration is based on 50x50um modules and should be ok for bare chips as well.
+  # For optimal results, perform a charge calibration on your individual chip!
+  e_conversion:
+    # [slope] = Electrons / Delta VCAL
+    slope          : 10.4
+    slope_error    : 0.10
+    # [offset] = Electrons
+    offset         : 180
+    offset_error   : 60
+
+# Disable specific pixels
+#disable          :
+#                  - [0, 0]
+
+# DAC settings (inner layer, bare chip, 5 uA operating point)
+# For other settings, have a look at the individual FE guides.
+registers:
+  IBIASP1_SYNC     : 90
+  IBIASP2_SYNC     : 140
+  IBIAS_SF_SYNC    : 80
+  IBIAS_KRUM_SYNC  : 55
+  IBIAS_DISC_SYNC  : 300
+  ICTRL_SYNCT_SYNC : 100
+  VBL_SYNC         : 380
+  VTH_SYNC         : 390
+  VREF_KRUM_SYNC   : 450
+  CONF_FE_SYNC     : 0x0002 # High gain, normal ToT
+  
+  PA_IN_BIAS_LIN   : 350
+  FC_BIAS_LIN      : 20
+  KRUM_CURR_LIN    : 32
+  LDAC_LIN         : 130
+  COMP_LIN         : 110
+  REF_KRUM_LIN     : 300
+  Vthreshold_LIN   : 415
+  
+  PRMP_DIFF        : 511
+  FOL_DIFF         : 542
+  PRECOMP_DIFF     : 512
+  COMP_DIFF        : 1023 # (FPM), for FEM use 528
+  VFF_DIFF         : 40   # (FPM), for FEM use 140
+  VTH1_DIFF        : 600
+  VTH2_DIFF        : 50
+  LCC_DIFF         : 20
+  CONF_FE_DIFF     : 0 # Default: LCC off, if leakage current higher than 1 nA, LCC can be switched on.

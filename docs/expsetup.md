@@ -1,4 +1,4 @@
-Experimental setup
+Experimental Setup
 ==================
 
 Experimental setups will inevitably differ from site to site depending
@@ -13,15 +13,15 @@ For the chip:
     of providing 1.8V @ 1A on each channel.
 -   1-2m long custom made cable with a 4-pin Molex connector to power
     the chip.
--   1-2m long display port to display port (mini display port) to
+-   1-2m long DisplayPort to DisplayPort (Mini DisplayPort) to
     connect the chip to BDAQ (YARR) readout.
 -   Modern PC with &gt; 8 GB RAM, Quad-core CPU, 1TB HD running CentOS 7
-    is highly recommended. sudo right is required for FPGA programming.
+    is highly recommended. ```sudo``` rights are required for FPGA programming.
 
 In addition for the module:
 
 -   High voltage power supply, e.g. Keithley 2410.
--   Single pin Lemo cable with 00 connector.
+-   Single pin Lemo cable with 00 connector to bias the sensor.
 
 Details of setups at each site can be found below:
 

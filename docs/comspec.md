@@ -1,5 +1,5 @@
-Commissioning
-=============
+Commissioning Specification
+===========================
 
 In order to commission/qualify the assembly sites, all institutes should be able to fulfill the following requirements:
 
