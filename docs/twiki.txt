@@ -1,0 +1,300 @@
+<!-- This is the default ATLAS template. 
+Please modify it in the sections indicated to create your topic. In particular, notice that at the bottom there are some sections that must be filled for publicly accessible pages.
+If you have any comments/complaints about this template, then please email atlas-twiki-support -at- cern dot ch
+
+By default the title is the WikiWord used to create this topic.
+if you want to modify it to something more meaningful, just replace %TOPIC% below with i.e "My Topic"
+===========  you can remove the lines above ============================================= -->
+%CERTIFY%
+---+!!<nop>%TOPIC%
+%TOC%     <!-- this line is optional -->
+%STARTINCLUDE%
+
+---+Introduction
+Site commissioning will start with introduction of the "Travelling Module". The main purpose of the "Travelling Module" exercise is to make sure that every potential commissioning site is familiar with the basic operation of the RD53A chip with either YARR or BDAQ setups and the results from the essential tuning protocols match the results of other sites. Common chip sent around should help unify setups across the institutes and help everyone to get up and running while ensuring consistent results.
+
+---+Information and Support
+For RD53A specific questions please consult the [[https://twiki.cern.ch/twiki/bin/viewauth/RD53/RD53ATesting][testing twiki]].
+
+There is an ITkPixel Mattermost team with a channel on the travelling module for quick support. Join [[https://mattermost.web.cern.ch/signup_user_complete/?id=ujzsdu51p3nuirqp7h5bkjo5ay][here]].
+
+The YARR documentation can be found on [[https://yarr.readthedocs.io][readthedocs]]. For YARR specific questions and problems there is a [[https://mattermost.web.cern.ch/yarr][support channel]] for discussions. The instructions to install the local database is on this [[https://github.com/jlab-hep/Yarr/wiki][wiki page]].
+
+For BDAQ instructions can be found [[https://gitlab.cern.ch/silab/bdaq53][here]] with additional information on the [[https://gitlab.cern.ch/silab/bdaq53/wikis/home][wiki]].
+
+---+Contact details
+Please express interest in participation by filling this [[https://docs.google.com/spreadsheets/d/1qtbo60B43QQgahlq0hG3hi0f7tpFaO4p044CMa54tGE/edit#gid=0][Google spredsheet]]. On "Travel Pack" reception, please fill the table [[https://twiki.cern.ch/twiki/bin/view/Atlas/ContactDetails][here]]. Also review the table once you completed work with the "Travelling Module".
+
+---+Travel pack
+The travel pack consists of several items all enclosed in a bright yellow Pelican case. Please familiarise yourself with the content [[https://twiki.cern.ch/twiki/bin/view/Atlas/TravelPack][here]].
+
+---++Chip 1
+Chip SN: 0x0494
+Photopgraphs of the chip
+<br /> <img src="%ATTACHURLPATH%/GLA_Chip_N1.jpg" alt="GLA_Chip_N1.jpg" width="640" height="480" /></verbatim>
+
+Content of the Travel pack #1 before shipping
+<br /> <img src="%ATTACHURLPATH%/GLA_CaseOpened_N1.jpg" alt="GLA_CaseOpened_N1.jpg" width="640" height="850" /></verbatim>
+
+Visual photo of the case before shipment
+<br /> <img src="%ATTACHURLPATH%/GLA_CaseToShip_N1.jpg" alt="GLA_CaseToShip_N1.jpg" width="640" height="480" /></verbatim>
+
+There is also a secret compartment under the foam. Please use at your discretion. I (Dima Maneuski) put DP to DP mini and power cable for Edinburgh there.
+
+<br /> <img src="%ATTACHURLPATH%/GLA_CaseSecret_N1.jpg" alt="GLA_CaseSecret_N1.jpg" width="640" height="480" /></verbatim>
+
+---++Chip 2
+Chip SN: 
+Known peculiarities
+
+---++Chip 3
+Chip SN: 
+Known perculiarities
+
+---++Module 1
+sensor information
+Chip SN: 
+Known peculiarities
+
+---++Module 2
+sensor information
+Chip SN: 
+Known peculiarities
+
+---++Module 3
+sensor information
+Chip SN: 
+Known perculiarities
+
+---+Experimental setup
+Experimental setups will inevitably differ from site to site depending on equipment availability. It is recommended for each organisation to create a page on this Twiki and describe their setup in a free form in as much detail as practically needed.
+General considerations are as follows.
+
+For the chip:
+   * Good quality dual / triple channel laboratory power supply capable of providing 1.8V @ 1A on each channel.
+   * 1-2m long custom made cable with a 4-pin Molex connector to power the chip.
+   * 1-2m long display port to display port (mini display port) to connect the chip to BDAQ (YARR) readout.
+   * Modern PC with > 8 GB RAM, Quad-core CPU, 1TB HD running CentOS 7 is highly recommended. sudo right is required for FPGA programming.
+
+In addition for the module:
+   * High voltage power supply, e.g. Keithley 2410.
+   * Single pin Lemo cable with 00 connector.
+
+Details of setups at each site can be found below:
+   * [[CharacterisationSetups#University_of_Glasgow][University of Glasgow]]
+
+---+Programme FPGA
+To programme the FPGA both for YARR and BDAQ system, Vivado is required and can be [[https://www.xilinx.com/support/download.html][downloaded for free]] (registration needed) as either Vivado Webpack or Vivado Lab. 
+
+For YARR follow [[https://github.com/Yarr/Yarr-fw/blob/master/syn/xpressk7/README.md][this link]] and for BDAQ follow [[https://gitlab.cern.ch/silab/bdaq53/wikis/Hardware/fpga-configuration][this link]].
+
+
+---+Software installation
+Software packages for [[https://gitlab.cern.ch/YARR/YARR][YARR]] and [[https://gitlab.cern.ch/silab/bdaq53][BDAQ]] are substantially different with no common ground. Please follow the installation instructions for each of the system separately, depending on the system at hand.
+
+
+---++YARR-based system
+YARR system has a dedicated portal [[https://yarr.readthedocs.io/en/devel][readthedocs]]. Please follow the installations instructions there. For installation from scratch generally, these steps are needed to be accomplished:
+
+   * Clone and compile YARR software package from the [[https://gitlab.cern.ch/YARR/YARR][gitlab repository]]
+   * Install custom PCIe kernel drivers
+   * Follow hardware guidance for the type of DAQ card in your possession
+   * Run basics scans such as digital, analog and threshold
+   * Review acquired results
+
+To enjoy supplementary plotting scripts, install ROOT6 on your CentOS7 PC [ =sudo yum install root= ]. The scripts have to be compiled separately as shown [[https://yarr.readthedocs.io/en/devel/rootscripts/][here]]. Now when you are back to this page, it is assumed that you managed to produce some graphs from analog/digital scans and also familiarised yourself to some degree with the [[https://yarr.readthedocs.io/en/devel/scanconsole/][scanConsole]].
+
+---++Local database (only available with YARR and Centos 7 at the moment)
+Local database as a concept is introduced to get the users some experience of using databases. Eventually, all the results produced will be uploaded to the production database. In the due course of the production database being worked on, the local database will be used. For the YARR DAQ system, a fork was created [[https://github.com/jlab-hep/Yarr][here]]. It includes the latest YARR software and integrated local database. Please follow the detailed installation instructions in the [[https://github.com/jlab-hep/Yarr/wiki][wiki page]]. Mind that eventually this will be merged into the development and master branches of YARR software.
+
+This is how the local database and its installation works in general. [[https://www.mongodb.com/][MongoDB]] classified as a NoSQL database program, uses JSON-like documents with schema. It offers the simplicity of development for databases with a none-straightforward structuring. More data, files, structures and fields can be added as development progresses giving flexibility this project needs at this stage of development. This is very hard to achieve with an SQL database.
+
+Several installation steps are needed, all detailed in the documentation [[https://github.com/jlab-hep/Yarr/wiki][here]]. A breakdown is below:
+   * Installation of MongoDB dependencies
+   * Installation of MongoDB
+   * Installation of database backend 
+   * Installation of database viewer (front end)
+   * Creation of the RD53A local database.
+   * Creation of the RD53A local database user.
+   * Creation of the RD53A local database chip configuration.
+   * Running scans as usual but with database upload.
+
+---++BDAQ-based system
+Follow instructions [[https://gitlab.cern.ch/silab/bdaq53][here]].
+
+TODO
+
+
+---+Test parameters
+Disclaimer: Only an overview of what needs to be done is provided here, use existing documentation to find how to do this.
+
+On module reception always check/set the correct configuration of the jumpers on the single chip card. Please cross-check the configuration of the SCC with [[https://twiki.cern.ch/twiki/pub/RD53/RD53ATesting/RD53A_SCC_Configuration.pdf][this document]].
+
+Tests should be done at room temperature with the chip powered in LDO mode at 1.8V. Powering the chip to 1.8V in Direct Mode will likely to result in permanent damage. 
+
+Check that Iref is set to 4.0 uA: Remove the jumper labeled IREF IO, power up the chip (don't panic if the current consumption drops drastically) and measure the current between these pins. If necessary, set the 16-bit IREF TRIM jumpers. Remember to put back the IREF IO jumper.
+
+Measure VDDA and VDDD and set them to 1.2V in the software as described below.
+
+All three FE on the RD53A module is advised to be tuned. The tuning protocol is shown below. The threshold of all three FE can be tuned to 1000e. This is the recommended value for the travelling module. The ToT should be tuned to 8BC at 10000e.
+
+
+---+Testing protocol YARR
+
+Follow instructions [[https://yarr.readthedocs.io/en/devel/scanconsole/][here]].
+
+To adjust VDDA and VDDD to 1.2V, change SldoAnalogTrim and SldoDigitalTrim DACs in the chip config. If you still get "data not valid" errors, adjust VDDA so a value that this error disappears. Once made sure that the module works, tune all FEs and save the results before and after tuning. 
+
+---++Synchronous Front End tuning protocol
+Pre-tuning scans:
+   * std_digitalscan
+   * syn_analogscan
+   * syn_thresholdscan
+
+Tuning:
+   * syn_tune_globalthreshold
+   * syn_tune_globalpreamp
+   * syn_tune_globalthreshold
+
+Post-tuning scans:
+   * syn_thresholdscan
+   * sync_totscan
+   * syn_noisescan
+
+---++Linear Front End tuning protocol
+Pre-tuning scans:
+   * std_digitalscan
+   * lin_analogscan
+   * lin_thresholdscan
+
+Tuning:
+   * lin_tune_globalthreshold to 2000e
+   * lin_tune_pixelthreshold to 2000e
+   * lin_retune_globalthreshold to 1000e
+   * lin_retune_pixelthreshold to 1000e
+   * lin_tune_globalpreamp
+   * lin_retune_pixelthreshold
+   * lin_tune_finepixelthreshold
+
+Post-tuning scans:
+   * lin_thresholdscan
+   * lin_totscan
+   * lin_noisescan
+
+---++Differential Front End tuning protocol
+Pre-tuning scans:
+   * std_digitalscan
+   * diff_analogscan
+   * diff_thresholdscan
+
+Tuning:
+   * diff_tune_globalthreshold
+   * diff_tune_pixelthreshold
+   * diff_tune_globalpreamp
+   * diff_retune_pixelthreshold
+
+Post-tuning scans:
+   * diff_thresholdscan
+   * diff_totscan
+   * diff_noisescan
+
+---+Results review
+
+Let's compare two threshold scans, before and after tuning.
+=YARR/src/data/19060100_diffFE_tune/01_before_tune/XXXX_diff_thresholdscan/TravelChip_sCurve-0_untuned.png=
+
+   * Threshold scan of differential FE before tuning: <br />
+     <img src="%ATTACHURLPATH%/TravelChip_sCurve-0_untuned.png" alt="TravelChip_sCurve-0_untuned.png" width="640" height="480" /></verbatim>
+
+=YARR/src/data/19060100_diffFE_tune/03_after_tune/XXXX_diff_thresholdscan/TravelChip_sCurve-0_tuned.png=
+
+   * Threshold scan of differential FE after tuning: <br />
+     <img src="%ATTACHURLPATH%/TravelChip_sCurve-0_tuned.png" alt="TravelChip_sCurve-0_tuned.png" width="640" height="480" /></verbatim>
+
+
+---+Testing protocol BDAQ
+Follow instructions [[https://gitlab.cern.ch/silab/bdaq53/wikis/User-guide/General-usage][here]]. You can either execute with e.g. =bdaq53 scan_digital= or =python scan_digital.py=.
+
+To adjust VDDA and VDDD to 1.2V, change  =VREF_A_TRIM= and =VREF_D_TRIM= in the chip config. Once made sure that the module works, tune all FEs and save the results before and after tuning. For FE specific scans and tunings, adjust = 'start_column'= and ='stop_column'= in the scan code accordingly.
+
+For any tuning, the electron equivalence of injected charge is roughly 10 times the difference between =VCAL_MED= and =VCAL_HIGH=. Pay attention to the scanning range and adjust =VCAL_HIGH_start= and =VCAL_HIGH_stop= in the =local_configuration= section of the scan code accordingly.
+
+Start with a clean data folder, make sure you don't have old mask files in your folder. The same mask file is going to be written and rewritten for each FE step.
+
+---++Tuning protocol
+Pre-tuning scans (can be FE specific if the column range changed accordingly in the code)
+   * scan_digital
+   * scan_analog
+   * scan_threshold for all FEs
+
+---+++ Synchronous Front End
+Tuning:
+   * depending on the outcome of the pre-tuning threshold scan, adjust =VTH_SYNC=. The [[https://twiki.cern.ch/twiki/pub/RD53/RD53ATesting/SYNC_FE_TESTING_SPECIFICATIONS_updated.pdf][FE testing specification]] includes recommended values that might help in the choice of the DAC value.
+   * sync thresholdscan
+   * repeat the steps above if necessary
+   * ToT tuning with =tune_tot.py= and adjust the FE and target in the code accordingly.
+   * repeat threshold tuning again after ToT tuning
+
+Post-tuning scans:
+   * syn_thresholdscan
+   * syn_totscan
+   * syn_noisescan
+
+---+++Linear Front End tuning protocol
+Tuning (tune to 2000e target first, then go lower to 1000e):
+   * depending on the outcome of the pre-tuning threshold scan, adjust =Vthreshold_LIN= to target 2000e threshold. The [[https://twiki.cern.ch/twiki/pub/RD53/RD53ATesting/LIN_AFE_guidelines.pdf][FE testing specification]] includes recommended values that might help in the choice of the DAC value.
+   * lin thresholdscan
+   * repeat the steps above if necessary
+   * tune the pixel threshold =meta_tune_local_threshold.py=, adapt the =local_configuration= as usual.
+   * depending on the outcome of the previous threshold tuning, adjust =Vthreshold_LIN= to target 1000e.
+   * lin thresholdscan
+   * repeat the steps above if necessary
+   * tune the pixel threshold =meta_tune_local_threshold.py=, adapt the =local_configuration= as usual.
+   * ToT tuning with =tune_tot.py= and adjust the FE and target in the code accordingly.
+   * repeat local threshold tuning again after ToT tuning
+
+Post-tuning scans:
+   * lin_thresholdscan
+   * lin_totscan
+   * lin_noisescan
+
+---+++Differential Front End tuning protocol
+Tuning:
+  * depending on the outcome of the pre-tuning threshold scan, adjust =Vthreshold_LIN= to target 2000e threshold. The [[https://twiki.cern.ch/twiki/pub/RD53/RD53ATesting/Diff_userguide.pdf][FE testing specification]] includes recommended values that might help in the choice of the DAC value.
+   * diff thresholdscan
+   * repeat the steps above if necessary
+   * tune the pixel threshold =meta_tune_local_threshold.py=, adapt the =local_configuration= as usual.
+   * ToT tuning with =tune_tot.py= and adjust the FE and target in the code accordingly.
+   * repeat local threshold tuning again after ToT tuning
+
+Post-tuning scans:
+   * diff_thresholdscan
+   * diff_totscan
+   * diff_noisescan
+
+---+Results review
+TODO
+
+
+---+Frequently asked questions
+
+---+Troubleshooting
+Check [[https://yarr.readthedocs.io/en/devel/troubleshooting/][here]] first. If you cannot find your answers, try the [[https://mattermost.web.cern.ch/itkpixel/channels/travellingmodule][Mattermost channel]].
+
+<!-- *********************************************************** -->
+<!-- Do NOT remove the remaining lines, but add requested info as appropriate -->
+<!-- *********************************************************** -->
+
+-----
+<!-- For significant updates to the topic, consider adding your 'signature' (beneath this editing box) -->
+*Major updates*:%BR%
+-- Main.DzmitryManeuski - 2019-06-06
+
+<!-- Person responsible for the page: 
+Either leave as is - the creator's name will be inserted; 
+Or replace the complete REVINFO tag (including percentages symbols) with a name in the form Main.TwikiUsersName -->
+%RESPONSIBLE% %REVINFO{"$wikiusername" rev="1.1"}% %BR%
+<!-- Once this page has been reviewed, please add the name and the date e.g. Main.StephenHaywood - 31 Oct 2006 -->
+%REVIEW% *Never reviewed*
+
+%STOPINCLUDE%
