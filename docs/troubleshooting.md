@@ -9,5 +9,4 @@ Troubleshooting
 ===============
 
 Check [here](https://yarr.readthedocs.io/en/devel/troubleshooting/)
-first. If you cannot find your answers, try the [Mattermost
-channel](https://mattermost.web.cern.ch/itkpixel/channels/travellingmodule).
+first. If you cannot find your answers, try the [Mattermost channel](https://mattermost.web.cern.ch/itkpixel/channels/travellingmodule). In order to be able to remotely debug, please provide a detailed description of the problem.

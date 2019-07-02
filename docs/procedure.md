@@ -19,11 +19,13 @@ use existing documentation to find how to do this.
 	- VTH_SYNC, VThreshold_LIN, VTH1/2_DIFF (by threshold tuning procedure)
 	- IBIAS_KRUM_SYNC, KRUM_CURR_LIN, VFF_DIFF (by ToT tuning procedure)  
 	<span style="color:red">The default chip configuration file will be uploaded here once the baseline and the default DAC values are fixed.</span>
+	
+	- Please change ```"Name": "JohnDoe",```(YARR) or ```chip_sn: '0x0000'```(BDAQ) according to the chip you test.
 
 -	Check that Iref is set to 4.0 uA: Remove the jumper labeled IREF IO,
 	power up the chip (don't panic if the current consumption drops
 	drastically) and measure the current between these pins. If necessary,
-	set the 16-bit IREF TRIM jumpers. Remember to put back the IREF IO
+	set the 4-bit IREF TRIM jumpers. Remember to put back the IREF IO
 	jumper.
 
 -	Measure **VDDA** and **VDDD** and set them to **1.2V** in the according entries in the chip configuration file.
@@ -36,7 +38,10 @@ use existing documentation to find how to do this.
 	**1000e**. This is the recommended value for the travelling module. The ToT
 	should be tuned to **8BC** at **10000e**.
 
-Testing protocol YARR
+
+<span style="color:red">NOTE: Testing protocols to be combined.</span>
+
+Testing Protocol YARR
 =====================
 
 Follow instructions
@@ -136,8 +141,7 @@ Follow instructions
 You can either execute with e.g. `bdaq53 scan_digital` or
 `python scan_digital.py`.
 
-To adjust VDDA and VDDD to 1.2V, change `VREF_A_TRIM` and `VREF_D_TRIM`
-in the chip config. Once made sure that the module works, tune all FEs
+Once made sure that the module works, tune all FEs
 and save the results before and after tuning. For FE specific scans and
 tunings, adjust `'start\_column'` and `'stop_column'` in the scan code
 accordingly.
