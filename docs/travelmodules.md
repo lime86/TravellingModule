@@ -1,5 +1,5 @@
-Travel pack
-===========
+Travelling Chips and Modules
+============================
 
 The travel pack consists of several items all enclosed in a bright
 yellow Pelican case. Please familiarise yourself with the content

@@ -11,7 +11,7 @@ use existing documentation to find how to do this.
 	mode at **1.8V**. (In direct powering mode use maximum 1.3V, anything higher will likely to
 	result in permanent damage.)
 	
--	For the moment please use the default chip configuration file provided by the DAQ version you have. For YARR: [default_rd53a.json](files/default_rd53a.json), for BDAQ: [default_chip.yml](files/default_chip.yml)
+-	For the moment please use the default chip configuration file provided by the DAQ version you have. For YARR: [default_rd53a.json](files/default_rd53a.json), for BDAQ: [default_chip.yaml](files/default_chip.yaml)
 	The only registers that should be changed in the chip configuration file are
 	- IREF (according to waferprobing data, via jumper and trim bits)
 	- VOLTAGE_TRIM (according to waferprobing data)
@@ -43,7 +43,7 @@ Testing Protocol YARR
 =====================
 
 Follow instructions
-[here](https://yarr.readthedocs.io/en/devel/scanconsole/).
+[here](https://yarr.readthedocs.io/en/devel/scanconsole/). After scans and tunings a set of [ROOT scripts](https://yarr.readthedocs.io/en/devel/rootscripts/) can be used to produce pretty plots and separate the data for each FE.
 
 Once made sure that the module works, tune all FEs and save the results
 before and after tuning.
