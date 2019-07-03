@@ -22,11 +22,9 @@ use existing documentation to find how to do this.
 	
 	- Please change ```"Name": "JohnDoe",```(YARR) or ```chip_sn: '0x0000'```(BDAQ) according to the chip you test.
 
--	Check that Iref is set to 4.0 uA: Remove the jumper labeled IREF IO,
-	power up the chip (don't panic if the current consumption drops
-	drastically) and measure the current between these pins. If necessary,
-	set the 4-bit IREF TRIM jumpers. Remember to put back the IREF IO
-	jumper.
+-	Check that Iref is set to 4.0 μA: Remove the jumper labeled IREF IO,
+	power up the chip and measure the current between these pins with e.g. a Keithley source meter. If necessary,
+	adjust the 4-bit IREF TRIM jumpers. Remember to put back the IREF IO jumper for operation.
 
 -	Measure **VDDA** and **VDDD** and set them to **1.2V** in the according entries in the chip configuration file.
 	- For YARR: change `SldoAnalogTrim` and `SldoDigitalTrim`. If you still get ```data not valid``` errors, adjust VDDA to a value that this error disappears. More information in [FAQ & Troubleshooting](../troubleshooting).

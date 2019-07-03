@@ -29,14 +29,26 @@ Edinburgh there.
 Chip 2
 ------
 
-Chip SN:  
-Known peculiarities:  
+Chip SN: 0x0D72 (?) Wafer13-7-2
+Known peculiarities: none
+
+![0x0D72](images/GLA_Chip_N2.jpg)
+
+
+Content of the Travel pack \#1 before shipping  
+![Travel pack before shipping](images/GLA_CaseOpened_N2.jpg)
+
+
+Visual photo of the case before shipment  
+![Visual photo of the case before shipment](images/GLA_CaseToShip_N2.jpg)  
 
 Chip 3
 ------
 
 Chip SN:  
-Known perculiarities:  
+Known perculiarities: has VDDA hack with 200kOhm resistor  
+
+![hack](images/GLA_Chip_N3-hack.jpg)
 
 Module 1
 --------

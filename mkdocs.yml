@@ -1,7 +1,7 @@
 site_name: Travel Guide
 pages:
     - Home: index.md
-    - Travel Pack: travelpack.md
+    - Travelling Modules: travelmodules.md
     - Commission Specification: comspec.md
     - Experimental Setup: expsetup.md
     - Programme FPGA: fw.md
