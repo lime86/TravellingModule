@@ -35,7 +35,7 @@ Known peculiarities: none
 ![0x0D72](images/GLA_Chip_N2.jpg)
 
 
-Content of the Travel pack \#1 before shipping  
+Content of the Travel pack \#2 before shipping  
 ![Travel pack before shipping](images/GLA_CaseOpened_N2.jpg)
 
 
@@ -45,10 +45,20 @@ Visual photo of the case before shipment
 Chip 3
 ------
 
-Chip SN:  
+Chip SN: 0x0495  
 Known perculiarities: has VDDA hack with 200kOhm resistor  
 
+![0x0495](images/GLA_Chip_N3.jpg)
+
 ![hack](images/GLA_Chip_N3-hack.jpg)
+
+
+Content of the Travel pack \#2 before shipping  
+![Travel pack before shipping](images/GLA_CaseOpened_N3.jpg)
+
+
+Visual photo of the case before shipment  
+![Visual photo of the case before shipment](images/GLA_CaseToShip_N3.jpg)  
 
 Module 1
 --------
