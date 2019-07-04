@@ -29,7 +29,7 @@ Edinburgh there.
 Chip 2
 ------
 
-Chip SN: 0x0D72 (?) Wafer13-7-2
+Chip SN: 0x0D72  
 Known peculiarities: none
 
 ![0x0D72](images/GLA_Chip_N2.jpg)
