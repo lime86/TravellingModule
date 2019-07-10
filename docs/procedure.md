@@ -15,7 +15,7 @@ We try to provide supplementary information here, please refer to existing docum
 	The only registers that should be changed in the chip configuration file are
 	- IREF (according to waferprobing data, via jumper and trim bits)
 	- VOLTAGE_TRIM (according to waferprobing data and measurements of VDDA and VDDD pins)
-	- MON_BG_TRIM (according to waferprobing data and measurement of )
+	- MON_BG_TRIM (according to waferprobing data and measurement of <span style="color:red">todo</span>)
 	- VTH_SYNC, VThreshold_LIN, VTH1/2_DIFF (by threshold tuning procedure)
 	- IBIAS_KRUM_SYNC, KRUM_CURR_LIN, VFF_DIFF (by ToT tuning procedure)  	
 	- Please change ```"Name": "JohnDoe",```(YARR) or ```chip_sn: '0x0000'```(BDAQ) according to the chip you test.
