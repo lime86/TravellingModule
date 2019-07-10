@@ -30,7 +30,12 @@ Chip 2
 ------
 
 Chip SN: 0x1F72  
-Known peculiarities: none
+Known peculiarities: none  
+Wafer probing data:
+- IREF_TRIM: 7
+- VREF_A_TRIM: 23
+- VREF_D_TRIM: 17
+- MON_BG_TRIM: 12
 
 ![0x0D72](images/GLA_Chip_N2.png)
 
