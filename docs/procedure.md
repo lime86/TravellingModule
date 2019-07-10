@@ -17,9 +17,7 @@ We try to provide supplementary information here, please refer to existing docum
 	- VOLTAGE_TRIM (according to waferprobing data and measurements of VDDA and VDDD pins)
 	- MON_BG_TRIM (according to waferprobing data and measurement of )
 	- VTH_SYNC, VThreshold_LIN, VTH1/2_DIFF (by threshold tuning procedure)
-	- IBIAS_KRUM_SYNC, KRUM_CURR_LIN, VFF_DIFF (by ToT tuning procedure)  
-	<span style="color:red">The default chip configuration file will be uploaded here once the baseline and the default DAC values are fixed.</span>
-	
+	- IBIAS_KRUM_SYNC, KRUM_CURR_LIN, VFF_DIFF (by ToT tuning procedure)  	
 	- Please change ```"Name": "JohnDoe",```(YARR) or ```chip_sn: '0x0000'```(BDAQ) according to the chip you test.
 
 -	Check that Iref is set to 4.0 μA: Remove the jumper labeled IREF IO,
@@ -91,11 +89,12 @@ For each frontend separately. The tuning of the linear frontend has to start wit
 1.	global threshold tuning
 2.	pixel threshold tuning
 3.	time over threshold tuning
-4.	readjust pixel threshold
+4.	re-adjust pixel threshold
 
 Post-tuning scans
 -----------------
-
+For all frontends (can be FE specific if the column range changed
+accordingly in the code):
 -	threshold scan
 -	ToT scan
 

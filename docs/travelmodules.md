@@ -31,7 +31,7 @@ Chip 2
 
 Chip SN: 0x1F72  
 Known peculiarities: none  
-Wafer probing data:
+Wafer probing data:  
 - IREF_TRIM: 7
 - VREF_A_TRIM: 23
 - VREF_D_TRIM: 17
