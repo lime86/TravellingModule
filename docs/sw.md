@@ -33,12 +33,12 @@ Additional instructions: (to be updated)
 Make sure you have a valid and clean Python 3.7 environment. The recommended method is to install [conda]( https://conda.io/miniconda.html).
 Install dependencies using conda:
 ```bash
-	# conda install numpy bitarray pyyaml scipy numba pytables matplotlib tqdm pyzmq blosc psutil coloredlogs
+	$ conda install numpy bitarray pyyaml scipy numba pytables matplotlib tqdm pyzmq blosc psutil coloredlogs
 ```
 Go to a directory of your choice and clone the BDAQ53 repository using git:
 ```bash
-	# git clone https://gitlab.cern.ch/silab/bdaq53.git
-	# cd bdaq53
-	# git checkout travelling_module
-	# python setup.py develop
+	$ git clone https://gitlab.cern.ch/silab/bdaq53.git
+	$ cd bdaq53
+	$ git checkout travelling_module
+	$ python setup.py develop
 ```
