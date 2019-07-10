@@ -23,9 +23,7 @@ module for quick support. Join
 The YARR documentation can be found on
 [readthedocs](https://yarr.readthedocs.io). For YARR specific questions
 and problems there is a [support
-channel](https://mattermost.web.cern.ch/yarr) for discussions. The
-instructions to install the local database is on this [wiki
-page](https://github.com/jlab-hep/Yarr/wiki).
+channel](https://mattermost.web.cern.ch/yarr) for discussions.
 
 For BDAQ instructions can be found
 [here](https://gitlab.cern.ch/silab/bdaq53) with additional information
