@@ -27,3 +27,14 @@ Details of setups at each site can be found below:
 
 -   [University of
     Glasgow](CharacterisationSetups#University_of_Glasgow)
+    
+
+YARR
+----
+
+
+
+
+BDAQ
+----
+Dedicated BDAQ hardware setup can be found [here](https://gitlab.cern.ch/silab/bdaq53/wikis/home#hardware-setup).
