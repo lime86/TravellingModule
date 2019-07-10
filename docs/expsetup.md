@@ -38,3 +38,7 @@ YARR
 BDAQ
 ----
 Dedicated BDAQ hardware setup can be found [here](https://gitlab.cern.ch/silab/bdaq53/wikis/home#hardware-setup).
+
+(to be updated)
+To power the BDAQ board, you can use either USB or a dedicated 5V powersupply. Select the powering method accordingly with the jumper next to the VDC input on the board. When using USB, also a USB 2.0 cable is fine, but the USB powersupply or port has to provide at least 1A of current.
+Connect the BDAQ53 base board to the readout PC using a standard Ethernet cable (>= CAT6). For the best experience, use an additional ethernet interface on your PC (either PCIe or USB3, though it has to be 1000BASE-T – Gigabit ethernet) and the “ETH” port on the BDAQ board next to the USB3 port.

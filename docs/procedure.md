@@ -69,6 +69,34 @@ for each FE step.
 Pixel threshold tuning uses ```meta_tune_local_threshold.py```.
 
 
+Additional instructions (to be cleaned up):
+-------------------------------------------
+
+Preparing the module
+--------------------
+Connect the DP1 connector on the single chip card (SCC) to the “DP_ML 1” connector on the BDAQ board using a standard DisplayPort (DP) cable.
+Make sure the SCC is jumpered for the correct powering mode and your powersupply is setup accordingly. Also double check if the IREF header is jumpered correctly according to this [list](TODO).
+Observe the BDAQ board. On the FPGA daughterboard there should be 4 LEDs labeled 0-3. LEDs 0 and 1 should be lit up, while LED 3 should be off and LED 4 should be flashing. Once you turn on the powersupply of the SCC, LED4 should stop flashing and either turn off permanently or all four LEDs should be constantly on.
+Preparing the module configuration file
+Download the module specific configuration file from [here](TODO). Verify that the chip serial number and trimbit settings are correct according to this [list](TODO). Alternatively you can create the configuration file yourself by creating a copy of bdaq53/bdaq53/rd53a_default.cfg.yaml, renaming it for example to 0x1234.cfg.yaml and changing chip_sn, VREF_A_TRIM, VREF_D_TRIM and MON_BG_TRIM according to the list above. The latter three of these parameters are the optimal voltage trimbit settings for this chip. 
+Preparing the output directory
+Create a directory on your PC that will be used for all BDAQ53 output files. Open bdaq53/bdaq53/testbench.yaml with any text editor and in the general section, set
+    • chip_sn to the serial number of the chip / module you are going to test,
+    • output_directory to the directory you just created.
+    • Make sure, chip_configuration is set to ‘auto’.
+Copy the configuration file you downloaded or created in the previous step to the output directory. This way, the configuration file is used for the very first scan. After that, the configuration is passed through consecutive scans.
+Testing the setup
+To make sure everything works as expected, test the setup by changing to bdaq53/bdaq53/scans and opening scan_digital.py. Verify that the region of interest is defined as 
+	'start_column': 0,
+	'stop_column': 400,
+	'start_row': 0,
+	'stop_row': 192,
+This means that the whole pixel matrix will be scanned. Start the scan by running
+	python scan_digital.py
+Check the output: In the very beginning it should tell you which chip configuration file it is using. Verify that this is the file you downloaded or created in the previous section. Let the scan finish and open the output .pdf file. Double check that the correct chip serial number is displayed in the first sentence on the first page. Scroll to the second page. The Event status histogram should be empty. Scroll to the third page. The Occupancy map should be homogeneously yellow, showing an occupancy of 100 hits for every pixel. The total amount of hits should be  = 7680000, or 76800 pixels with 100 hits each.
+Congratulations, you are ready to begin testing the module.
+
+
 Tuning protocol
 ===============
 
