@@ -34,8 +34,8 @@ on the [wiki](https://gitlab.cern.ch/silab/bdaq53/wikis/home).
 Contact details
 ===============
 
-Please express interest in participation by filling this [Google spreadsheet](https://docs.google.com/spreadsheets/d/1qtbo60B43QQgahlq0hG3hi0f7tpFaO4p044CMa54tGE/edit#gid=0). Deadline is 28 June 2019.  
-The current schedule can be found [here](https://docs.google.com/spreadsheets/d/1uaxTqf-mSaBd6_UuOKpe0N2RLMPN3AFnNkIQ4CnIEUY/edit?usp=sharing). Please check for the correctness and if necessary, provide feedback.  
-On "Travel Pack" reception, please fill the table
+- You can find the participating institutes and their contact details on the [sign-up sheet](https://docs.google.com/spreadsheets/d/1qtbo60B43QQgahlq0hG3hi0f7tpFaO4p044CMa54tGE/edit#gid=0), which is closed for editing, but commenting is still possible.
+- The current schedule can be found [here](https://docs.google.com/spreadsheets/d/1uaxTqf-mSaBd6_UuOKpe0N2RLMPN3AFnNkIQ4CnIEUY/edit?usp=sharing). Please check for the correctness and if necessary, provide feedback to Lingxin. <span style="color:red">We will encounter delays. If experienced institutes finish with the tests earlier, please post the chip straight away to the next institute.</span>  
+- On "Travel Pack" reception, please fill the table
 [here](https://twiki.cern.ch/twiki/bin/view/Atlas/ContactDetails). Also
 review the table once you completed work with the "Travelling Module".
