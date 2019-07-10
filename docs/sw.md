@@ -10,16 +10,16 @@ YARR-based system
 -----------------
 
 Use the [cleanup](https://gitlab.cern.ch/YARR/YARR/tree/cleanup) branch and follow the instructions on
-[software installation](https://yarr.readthedocs.io/en/devel/install/) and [kernel driver installation](https://yarr.readthedocs.io/en/devel/kernel_driver).
+[software installation](https://gitlab.cern.ch/YARR/YARR/tree/update_docs/docs/install.md) and [kernel driver installation](https://gitlab.cern.ch/YARR/YARR/tree/update_docs/docs/kernel_driver.md).
 
 To enjoy supplementary plotting scripts, install ROOT6 on your CentOS7
 PC `sudo yum install root`. The scripts have to be compiled
 separately as shown
-[here](https://yarr.readthedocs.io/en/devel/rootscripts/). Now when you
+[here](https://gitlab.cern.ch/YARR/YARR/tree/update_docs/docs/rootscripts.md). Now when you
 are back to this page, it is assumed that you managed to produce some
 graphs from analog/digital scans and also familiarised yourself to some
 degree with the
-[scanConsole](https://yarr.readthedocs.io/en/devel/scanconsole/).
+[scanConsole](https://gitlab.cern.ch/YARR/YARR/tree/update_docs/docs/scanconsole.md).
 
 
 BDAQ-based system

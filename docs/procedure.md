@@ -4,7 +4,7 @@ We try to provide supplementary information here, please refer to existing docum
 
 -	On module reception always check/set the correct configuration of the
 	jumpers on the single chip card. Please cross-check the configuration of
-	the SCC with [this document](https://twiki.cern.ch/twiki/pub/RD53/RD53ATesting/RD53A_SCC_Configuration.pdf) or [here](https://yarr.readthedocs.io/en/devel/rd53a/).
+	the SCC with [this document](https://twiki.cern.ch/twiki/pub/RD53/RD53ATesting/RD53A_SCC_Configuration.pdf) or [here](https://gitlab.cern.ch/YARR/YARR/tree/update_docs/docs/rd53a.md).
 
 -	Tests should be done at room temperature with the chip powered in **LDO**
 	mode at **1.8V**. (In direct powering mode use maximum 1.3V, anything higher will likely to
@@ -38,8 +38,8 @@ We try to provide supplementary information here, please refer to existing docum
 Testing with YARR
 =====================
 
-Use the [scanConsole](https://yarr.readthedocs.io/en/devel/scanconsole/) for all tunings and scans following [this tuning routine](https://yarr.readthedocs.io/en/devel/rd53a/#tuning-routine).
-After scans and tunings a set of [ROOT scripts](https://yarr.readthedocs.io/en/devel/rootscripts/) can be used to produce pretty plots and separate the data for each FE.
+Use the [scanConsole](https://gitlab.cern.ch/YARR/YARR/tree/update_docs/docs/scanconsole.md) for all tunings and scans following [this tuning routine](https://gitlab.cern.ch/YARR/YARR/tree/update_docs/docs/rd53a.md#tuning-routine).
+After scans and tunings a set of [ROOT scripts](https://gitlab.cern.ch/YARR/YARR/tree/update_docs/docs/rootscripts.md) can be used to produce pretty plots and separate the data for each FE.
 
 
 
