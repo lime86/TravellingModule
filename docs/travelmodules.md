@@ -5,6 +5,19 @@ The travel pack consists of several items all enclosed in a bright
 yellow Pelican case. Please familiarise yourself with the content
 [here](https://twiki.cern.ch/twiki/bin/view/Atlas/TravelPack).
 
+Padlock
+-------
+
+A padlock has a 4 digit key code:
+6508 - has two correct digits but neither are in the correct place
+7213 - Has one correct digit but it's in the wrong place
+3891 - Has no correct digits
+5217 - Has two correct digits, both in the correct place.
+All 4 digits in the key are different
+What is the code for the padlock 
+
+
+
 Chip 1
 ------
 
