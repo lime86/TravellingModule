@@ -32,7 +32,7 @@ Chip 2
 Chip SN: 0x1F72  
 Known peculiarities: none
 
-![0x0D72](images/GLA_Chip_N2.jpg)
+![0x0D72](images/GLA_Chip_N2.png)
 
 
 Content of the Travel pack \#2 before shipping  
