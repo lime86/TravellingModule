@@ -9,14 +9,14 @@ follows.
 
 For the chip:
 
--   Good quality dual / triple channel laboratory power supply capable
+-   Good quality single or dual channel laboratory power supply capable
     of providing 1.8V @ 1A on each channel.
 -   1-2m long custom made cable with a 4-pin Molex connector to power
     the chip.
 -   1-2m long DisplayPort to DisplayPort (Mini DisplayPort) to
     connect the chip to BDAQ (YARR) readout.
 -   Modern PC with &gt; 8 GB RAM, Quad-core CPU, 1TB HD running CentOS 7
-    is highly recommended. ```sudo``` rights are required for FPGA programming.
+    is highly recommended. ```sudo``` rights are required for installing the necessary dependencies, configuring the FPGA etc.
 
 In addition for the module:
 
@@ -37,7 +37,7 @@ YARR
 
 BDAQ
 ----
-Dedicated BDAQ hardware setup can be found [here](https://gitlab.cern.ch/silab/bdaq53/wikis/home#hardware-setup).
+Detailed BDAQ hardware setup can be found [here](https://gitlab.cern.ch/silab/bdaq53/wikis/home#hardware-setup).
 
 (to be updated)  
 To power the BDAQ board, you can use either USB or a dedicated 5V powersupply. Select the powering method accordingly with the jumper next to the VDC input on the board. When using USB, also a USB 2.0 cable is fine, but the USB powersupply or port has to provide at least 1A of current.

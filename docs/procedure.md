@@ -114,10 +114,10 @@ Tunings
 For each frontend separately. The tuning of the linear frontend has to start with
 2000e and retuned to 1000e (execute step 1 and 2 with 2000e and repeat with 1000e).
 
-1.	global threshold tuning
-2.	pixel threshold tuning
-3.	time over threshold tuning
-4.	re-adjust pixel threshold
+#.	global threshold tuning
+#.	pixel threshold tuning
+#.	time over threshold tuning
+#.	re-adjust pixel threshold
 
 Post-tuning scans
 -----------------
