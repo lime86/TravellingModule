@@ -12,19 +12,29 @@ consistent results.
 
 Information and Support
 =======================
+RD53A
+-----
 
 For RD53A specific questions please consult the [testing
-twiki](https://twiki.cern.ch/twiki/bin/viewauth/RD53/RD53ATesting).
+twiki](https://twiki.cern.ch/twiki/bin/viewauth/RD53/RD53ATesting). There is also a Mattermost team on [RD53A Testing](https://mattermost.web.cern.ch/rd53-testing).
+
+Travelling Module
+-----------------
 
 There is an ITkPixel Mattermost team with a channel on the travelling
 module for quick support. Join
 [here](https://mattermost.web.cern.ch/signup_user_complete/?id=ujzsdu51p3nuirqp7h5bkjo5ay).
 
-The YARR documentation can be found on
-[readthedocs](https://yarr.readthedocs.io). For YARR specific questions
+YARR
+----
+
+General YARR documentation can be found on
+[readthedocs](https://yarr.readthedocs.io/en/devel). The most up-to-date documentation can be found on [gitlab](https://gitlab.cern.ch/YARR/YARR/tree/update_docs) in the "docs" folder. For YARR specific questions
 and problems there is a [support
 channel](https://mattermost.web.cern.ch/yarr) for discussions.
 
+BDAQ
+----
 For BDAQ instructions can be found
 [here](https://gitlab.cern.ch/silab/bdaq53) with additional information
 on the [wiki](https://gitlab.cern.ch/silab/bdaq53/wikis/home).
@@ -33,7 +43,7 @@ Contact details
 ===============
 
 - You can find the participating institutes and their contact details on the [sign-up sheet](https://docs.google.com/spreadsheets/d/1qtbo60B43QQgahlq0hG3hi0f7tpFaO4p044CMa54tGE/edit#gid=0), which is closed for editing, but commenting is still possible.
-- The current schedule can be found [here](https://docs.google.com/spreadsheets/d/1uaxTqf-mSaBd6_UuOKpe0N2RLMPN3AFnNkIQ4CnIEUY/edit?usp=sharing). Please check for the correctness and if necessary, provide feedback to Lingxin. <span style="color:red">We will encounter delays. If experienced institutes finish with the tests earlier, please post the chip straight away to the next institute.</span>  
+- The current schedule can be found [here](https://docs.google.com/spreadsheets/d/1uaxTqf-mSaBd6_UuOKpe0N2RLMPN3AFnNkIQ4CnIEUY/edit?usp=sharing). There is also a copy of the contact information of the participating institutes. Please check for the correctness and if necessary, provide feedback to Lingxin. <span style="color:red">We will encounter delays. If experienced institutes finish with the tests earlier, please post the chip straight away to the next institute.</span>  
 - On "Travel Pack" reception, please fill the table
 [here](https://twiki.cern.ch/twiki/bin/view/Atlas/ContactDetails). Also
 review the table once you completed work with the "Travelling Module".
