@@ -8,4 +8,4 @@ pages:
     - Software Installation: sw.md
     - Testing Procedure: procedure.md
     - FAQ & Troubleshooting: troubleshooting.md
-theme: readthedocs
+theme: mkdocs
