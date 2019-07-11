@@ -8,10 +8,12 @@ for read and write access (no CERN account needed in principle).
 
 
 All the members of the following 2 e-groups have the respective access to the project space:
+
 - cernbox-project-atlas-itk-pixel-module-readers (anyone in this egroup can read in the project space)
 - cernbox-project-atlas-itk-pixel-module-writers (anyone in this egroup can read, write and delete in the project space)
  
 The following 2 folders are pre-created:
+
 - /eos/project/a/atlas-itk-pixel-module/www/ (folder for hosting an EOS-site-type website)
 - /eos/project/a/atlas-itk-pixel-module/public/ (public folder for all CERN authenticated users)
  
@@ -26,16 +28,32 @@ Folder structure:
 |-- www
 |-- TravellingModule 
     |-- chip#1
-		|-- institute#1 : where institute#1 stores the data on this chip
-		|-- institute#2 :
-		|-- ...
-		|-- institute#n
+		|-- BDAQ
+			|-- institute#b1 : where institute#b1 stores the data on this chip
+			|-- ...
+			`-- institute#bn
+		`-- YARR
+			|-- institute#y1 : where institute#y1 stores the data on this chip
+			|-- ...
+			`-- institute#yk
     |-- chip#2
-		|-- institute#1 : where institute#1 stores the data on this chip
-		|-- institute#2 :
-		|-- ...
-		|-- institute#n
+		|-- BDAQ
+			|-- institute#bn+1 : where institute#bn+1 stores the data on this chip
+			|-- ...
+			`-- institute#bn+m
+		`-- YARR
+			|-- institute#yk+1 : where institute#yk+1 stores the data on this chip
+			|-- ...
+			`-- institute#yk+j
     |-- chip#3
+		|-- BDAQ
+			|-- institute#bn+1 : where institute#bn+1 stores the data on this chip
+			|-- ...
+			`-- institute#bn+m
+		`-- YARR
+			|-- institute#yk+1 : where institute#yk+1 stores the data on this chip
+			|-- ...
+			`-- institute#yk+j
     |-- module#1
     |-- module#2 
     `-- module#3 
