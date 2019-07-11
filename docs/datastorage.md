@@ -27,7 +27,7 @@ Folder structure:
 |-- public
 |-- www
 |-- TravellingModule 
-    |-- chip\#1
+    |-- chip##1
 		|-- BDAQ
 			|-- institute#b1 : where institute#b1 stores the data on this chip
 			|-- ...
