@@ -18,7 +18,7 @@ The following 2 folders are pre-created:
 - /eos/project/a/atlas-itk-pixel-module/public/ (public folder for all CERN authenticated users)
  
 Members of the atlas-itk-pixel-module project also have the option of going to their CERNBox (via a web browser) to see the project files
-(go to 'Your projects' and select 'project atlas-itk-pixel-module'). Users need to login to https://cernbox.cern.ch ONCE to activate their CERNBox space!
+(go to 'Your projects' and select 'project atlas-itk-pixel-module'). Users need to login to <https://cernbox.cern.ch> ONCE to activate their CERNBox space!
 
 Folder structure:
 
