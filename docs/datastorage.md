@@ -1,8 +1,23 @@
 Data Storage
 ============
 
-The final tuning data of the travelling chips and modules should be stored in a common CERNbox (1TB)
-```/eos/project/a/atlas-itk-pixel-module/``` accessible via lxplus.  
+The final tuning data of the travelling chips and modules should be stored in a common database. For the moment it is a CERNbox as described below.
+If you used YARR, please produce ROOT plots using the provided plotting scripts and upload them as well.
+
+Final full set of data to be uploaded:
+
+- Pre-tuning scans
+- Tunings
+- Post-tuning scans
+- Temperature monitoring data
+- Notes on power consumption of the chip before and after configuration
+- A file with additional comments
+- Anything else you think might be important	
+
+CERNbox
+-------
+
+The CERNbox (1TB) ```/eos/project/a/atlas-itk-pixel-module/``` is accessible via lxplus.  
 User should subscript to egroups "cernbox-project-atlas-itk-pixel-module-readers" and "cernbox-project-atlas-itk-pixel-module-writers"
 for read and write access (no CERN account needed in principle).
 
@@ -27,7 +42,7 @@ Folder structure:
 |-- public
 |-- www
 |-- TravellingModule 
-    |-- chip##1
+    |-- chip#1
 		|-- BDAQ
 			|-- institute#b1 : where institute#b1 stores the data on this chip
 			|-- ...
