@@ -1,0 +1,44 @@
+Data Storage
+============
+
+The final tuning data of the travelling chips and modules should be stored in a common CERNbox (1TB)
+```/eos/project/a/atlas-itk-pixel-module/``` accessible via lxplus.  
+User should subscript to egroups "cernbox-project-atlas-itk-pixel-module-readers" and "cernbox-project-atlas-itk-pixel-module-writers"
+for read and write access (no CERN account needed in principle).
+
+
+All the members of the following 2 e-groups have the respective access to the project space:
+- cernbox-project-atlas-itk-pixel-module-readers (anyone in this egroup can read in the project space)
+- cernbox-project-atlas-itk-pixel-module-writers (anyone in this egroup can read, write and delete in the project space)
+ 
+The following 2 folders are pre-created:
+- /eos/project/a/atlas-itk-pixel-module/www/ (folder for hosting an EOS-site-type website)
+- /eos/project/a/atlas-itk-pixel-module/public/ (public folder for all CERN authenticated users)
+ 
+Members of the atlas-itk-pixel-module project also have the option of going to their CERNBox (via a web browser) to see the project files
+(go to 'Your projects' and select 'project atlas-itk-pixel-module'). Users need to login to https://cernbox.cern.ch ONCE to activate their CERNBox space!
+
+Folder structure:
+
+```bash
+.
+|-- public
+|-- www
+|-- TravellingModule 
+    |-- chip#1
+		|-- institute#1 : where institute#1 stores the data on this chip
+		|-- institute#2 :
+		|-- ...
+		|-- institute#n
+    |-- chip#2
+		|-- institute#1 : where institute#1 stores the data on this chip
+		|-- institute#2 :
+		|-- ...
+		|-- institute#n
+    |-- chip#3
+    |-- module#1
+    |-- module#2 
+    `-- module#3 
+`-- some other project
+```
+

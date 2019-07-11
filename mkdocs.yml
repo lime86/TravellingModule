@@ -4,8 +4,9 @@ pages:
     - Travelling Modules: travelmodules.md
     - Commission Specification: comspec.md
     - Experimental Setup: expsetup.md
-    - Programme FPGA: fw.md
+    - FPGA Configuration: fw.md
     - Software Installation: sw.md
     - Testing Procedure: procedure.md
+    - Data Storage: datastorage.md
     - FAQ & Troubleshooting: troubleshooting.md
 theme: readthedocs
