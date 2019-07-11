@@ -57,6 +57,6 @@ Folder structure:
     |-- module#1
     |-- module#2 
     `-- module#3 
-`-- some other project
+`-- some other ITk pixel module project
 ```
 
