@@ -39,6 +39,7 @@ Testing with YARR
 =====================
 
 Use the [scanConsole](https://gitlab.cern.ch/YARR/YARR/tree/update_docs/docs/scanconsole.md) for all tunings and scans following [this tuning routine](https://gitlab.cern.ch/YARR/YARR/tree/update_docs/docs/rd53a.md#tuning-routine).
+Run each scan and tuning **by hand**, observe the output in the terminal and look at the plots after scanConsole is finished. Look into the chip configuration and make sure the threshold DAC for each frontend makes sense.
 After scans and tunings a set of [ROOT scripts](https://gitlab.cern.ch/YARR/YARR/tree/update_docs/docs/rootscripts.md) can be used to produce pretty plots and separate the data for each FE.
 
 
@@ -123,6 +124,7 @@ Post-tuning scans
 -----------------
 For all frontends (can be FE specific if the column range changed
 accordingly in the code):
+
 -	threshold scan
 -	ToT scan
 
