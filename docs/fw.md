@@ -8,7 +8,7 @@ needed) as either Vivado Webpack or Vivado Lab.
 YARR
 ----
 Instructions on how to flash the firmware can be found [here](https://github.com/Yarr/Yarr-fw/blob/master/syn/xpressk7/README.md).
-A brief firmware guide and modification of the Ohio card can be found [here](https://gitlab.cern.ch/YARR/YARR/blob/update_docs/docs/fw_guide.md)
+A brief firmware guide and modification of the Ohio card can be found [here](https://yarr.readthedocs.io/en/latest/fw_guide)
 
 
 

@@ -4,7 +4,7 @@ We try to provide supplementary information here, please refer to existing docum
 
 -	On module reception always check/set the correct configuration of the
 	jumpers on the single chip card. Please cross-check the configuration of
-	the SCC with [this document](https://twiki.cern.ch/twiki/pub/RD53/RD53ATesting/RD53A_SCC_Configuration.pdf) or [here](https://gitlab.cern.ch/YARR/YARR/tree/update_docs/docs/rd53a.md).
+	the SCC with [this document](https://twiki.cern.ch/twiki/pub/RD53/RD53ATesting/RD53A_SCC_Configuration.pdf) or [here](https://yarr.readthedocs.io/en/latest/rd53a).
 
 -	Tests should be done at room temperature with the chip powered in **LDO**
 	mode at **1.8V**. (In direct powering mode use maximum 1.3V, anything higher will likely to
@@ -18,15 +18,15 @@ We try to provide supplementary information here, please refer to existing docum
 	- MON_BG_TRIM (according to waferprobing data and measurement of <span style="color:red">todo</span>)
 	- VTH_SYNC, VThreshold_LIN, VTH1/2_DIFF (by threshold tuning procedure)
 	- IBIAS_KRUM_SYNC, KRUM_CURR_LIN, VFF_DIFF (by ToT tuning procedure)  	
-	- Please change ```"Name": "JohnDoe",```(YARR) or ```chip_sn: '0x0000'```(BDAQ) according to the chip you test.
+	- Please change ``"Name": "JohnDoe",``(YARR) or ``chip_sn: '0x0000'``(BDAQ) according to the chip you test.
 
 -	Check that Iref is set to 4.0 μA: Remove the jumper labeled IREF IO,
 	power up the chip and measure the current between these pins with e.g. a Keithley source meter. If necessary,
 	adjust the 4-bit IREF TRIM jumpers. Remember to put back the IREF IO jumper for operation.
 
 -	Measure **VDDA** and **VDDD** on the SCC and set them to **1.2V** in the according entries in the chip configuration file.
-	- For YARR: change `SldoAnalogTrim` and `SldoDigitalTrim`. If you still get ```data not valid``` errors, adjust VDDA to a value that this error disappears. More information in [FAQ & Troubleshooting](../troubleshooting).
-	- For BDAQ: change `VREF_A_TRIM` and `VREF_D_TRIM`.
+	- For YARR: change ``SldoAnalogTrim`` and ``SldoDigitalTrim``. If you still get ``data not valid`` errors, adjust VDDA to a value that this error disappears. More information in [FAQ & Troubleshooting](../troubleshooting).
+	- For BDAQ: change ``VREF_A_TRIM` and `VREF_D_TRIM``.
 
 -	All three FE on the RD53A module is advised to be tuned. The tuning
 	protocol is shown below. 
@@ -38,9 +38,9 @@ We try to provide supplementary information here, please refer to existing docum
 Testing with YARR
 =====================
 
-Use the [scanConsole](https://gitlab.cern.ch/YARR/YARR/tree/update_docs/docs/scanconsole.md) for all tunings and scans following [this tuning routine](https://gitlab.cern.ch/YARR/YARR/tree/update_docs/docs/rd53a.md#tuning-routine).
+Use the [scanConsole](https://yarr.readthedocs.io/en/latest/scanconsole) for all tunings and scans following [this tuning routine](https://yarr.readthedocs.io/en/latest/rd53a#tuning-routine).
 Run each scan and tuning **by hand**, observe the output in the terminal and look at the plots after scanConsole is finished. Look into the chip configuration and make sure the threshold DAC for each frontend makes sense.
-After scans and tunings a set of [ROOT scripts](https://gitlab.cern.ch/YARR/YARR/tree/update_docs/docs/rootscripts.md) can be used to produce pretty plots and separate the data for each FE.
+After scans and tunings a set of [ROOT scripts](https://yarr.readthedocs.io/en/latest/rootscripts) can be used to produce pretty plots and separate the data for each FE.
 
 
 
@@ -49,25 +49,25 @@ Testing with BDAQ
 
 Follow instructions
 [here](https://gitlab.cern.ch/silab/bdaq53/wikis/User-guide/General-usage).
-You can either execute with e.g. `bdaq53 scan_digital` or
-`python scan_digital.py`.
+You can either execute with e.g. ``bdaq53 scan_digital`` or
+``python scan_digital.py``.
 
 Once made sure that the module works, tune all FEs
 and save the results before and after tuning. For FE specific scans and
-tunings, adjust `'start\_column'` and `'stop_column'` in the scan code
+tunings, adjust ``'start\_column'`` and ``'stop_column'`` in the scan code
 accordingly.
 
 For any tuning, the electron equivalence of injected charge is roughly
-10 times the difference between `VCAL_MED` and `VCAL_HIGH`. Pay
+10 times the difference between ``VCAL_MED`` and ``VCAL_HIGH``. Pay
 attention to the scanning range and adjust `VCAL_HIGH_start` and
-`VCAL_HIGH_stop` in the `local_configuration` section of the scan code
+``VCAL_HIGH_stop`` in the ``local_configuration`` section of the scan code
 accordingly.
 
 Start with a clean data folder, make sure you don't have old mask files
 in your folder. The same mask file is going to be written and rewritten
 for each FE step.
 
-Pixel threshold tuning uses ```meta_tune_local_threshold.py```.
+Pixel threshold tuning uses ``meta_tune_local_threshold.py``.
 
 
 Additional instructions (to be cleaned up):
@@ -87,13 +87,17 @@ Create a directory on your PC that will be used for all BDAQ53 output files. Ope
     • Make sure, chip_configuration is set to ‘auto’.
 Copy the configuration file you downloaded or created in the previous step to the output directory. This way, the configuration file is used for the very first scan. After that, the configuration is passed through consecutive scans.
 Testing the setup
-To make sure everything works as expected, test the setup by changing to bdaq53/bdaq53/scans and opening scan_digital.py. Verify that the region of interest is defined as 
+To make sure everything works as expected, test the setup by changing to bdaq53/bdaq53/scans and opening scan_digital.py. Verify that the region of interest is defined as  
+```yaml
 	'start_column': 0,
 	'stop_column': 400,
 	'start_row': 0,
 	'stop_row': 192,
+```
 This means that the whole pixel matrix will be scanned. Start the scan by running
-	python scan_digital.py
+```bash
+	$ python scan_digital.py
+```
 Check the output: In the very beginning it should tell you which chip configuration file it is using. Verify that this is the file you downloaded or created in the previous section. Let the scan finish and open the output .pdf file. Double check that the correct chip serial number is displayed in the first sentence on the first page. Scroll to the second page. The Event status histogram should be empty. Scroll to the third page. The Occupancy map should be homogeneously yellow, showing an occupancy of 100 hits for every pixel. The total amount of hits should be  = 7680000, or 76800 pixels with 100 hits each.
 Congratulations, you are ready to begin testing the module.
 
@@ -116,7 +120,7 @@ For each frontend separately. The tuning of the linear frontend has to start wit
 2000e and retuned to 1000e (execute step 1 and 2 with 2000e and repeat with 1000e).
 
 1.	global threshold tuning
-2.	pixel threshold tuning
+2.	pixel threshold tuning (not for syncFE)
 3.	time over threshold tuning
 4.	re-adjust pixel threshold
 

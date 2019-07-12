@@ -29,7 +29,7 @@ YARR
 ----
 
 General YARR documentation can be found on
-[readthedocs](https://yarr.readthedocs.io/en/devel). The most up-to-date documentation can be found on [gitlab](https://gitlab.cern.ch/YARR/YARR/tree/update_docs) in the "docs" folder. For YARR specific questions
+[readthedocs](https://yarr.readthedocs.io). For YARR specific questions
 and problems there is a [support
 channel](https://mattermost.web.cern.ch/yarr) for discussions.
 
