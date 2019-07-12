@@ -28,14 +28,16 @@ module for quick support. Join
 YARR
 ----
 
+Please use release v1.0.0 (master branch).
 General YARR documentation can be found on
 [readthedocs](https://yarr.readthedocs.io). For YARR specific questions
-and problems there is a [support
+and problems there is a [Mattermost
 channel](https://mattermost.web.cern.ch/yarr) for discussions.
 
 BDAQ
 ----
-For BDAQ instructions can be found
+Please use ``travelling_module`` branch.
+Instructions can be found
 [here](https://gitlab.cern.ch/silab/bdaq53) with additional information
 on the [wiki](https://gitlab.cern.ch/silab/bdaq53/wikis/home).
 
