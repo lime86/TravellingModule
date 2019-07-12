@@ -10,7 +10,8 @@ We try to provide supplementary information here, please refer to existing docum
 	mode at **1.8V**. (In direct powering mode use maximum 1.3V, anything higher will likely to
 	result in permanent damage.)
 	
--	Please use the default configuration provided by the software release with [5uA inner layer parameters](https://twiki.cern.ch/twiki/bin/viewauth/RD53/RD53ATesting#Guidelines_for_Front_ends).
+-	BDAQ and YARR use different default chip configurations. For a better comparability they are modified with
+	[5uA inner layer parameters](https://twiki.cern.ch/twiki/bin/viewauth/RD53/RD53ATesting#Guidelines_for_Front_ends).
 	The modified chip configurations can be downloaded for YARR: [rd53a_TravellingChip.json](files/rd53a_TravellingChip.json) and for BDAQ: [rd53a_TravellingChip.cfg.yaml](files/rd53a_TravellingChip.cfg.yaml)
 	The only registers that should be changed in the chip configuration file are
 	- IREF (according to waferprobing data, via jumper and trim bits)
