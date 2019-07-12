@@ -9,7 +9,7 @@ Final full set of data to be uploaded:
 - Pre-tuning scans
 - Tunings
 - Post-tuning scans
-- Temperature monitoring data
+- Temperature monitoring data ([data sheet of the NTC on the SCC](https://www.mouser.de/datasheet/2/362/ktthermistor-3035.pdf))
 - Notes on power consumption of the chip before and after configuration
 - A file with additional comments
 - Anything else you think might be important	
