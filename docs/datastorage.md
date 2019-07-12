@@ -19,7 +19,8 @@ CERNbox
 
 The CERNbox (1TB) ```/eos/project/a/atlas-itk-pixel-module/``` is accessible via lxplus.  
 User should subscript to egroups "cernbox-project-atlas-itk-pixel-module-readers" and "cernbox-project-atlas-itk-pixel-module-writers"
-for read and write access (no CERN account needed in principle).
+for read and write access (no CERN account needed in principle). However, as for mysterious reason we don't get any notifications if anyone signs up,
+please drop an email to Lingxin so your request can be approved.
 
 
 All the members of the following 2 e-groups have the respective access to the project space:
