@@ -20,7 +20,7 @@ CERNbox
 The CERNbox (1TB) ```/eos/project/a/atlas-itk-pixel-module/``` is accessible via lxplus.  
 User should subscript to egroups "cernbox-project-atlas-itk-pixel-module-readers" and "cernbox-project-atlas-itk-pixel-module-writers"
 for read and write access (no CERN account needed in principle). However, as for mysterious reason we don't get any notifications if anyone signs up,
-please drop an email to Lingxin so your request can be approved.
+please drop an email to Lingxin so your request can be approved. Following the approval 40 minutes is needed for all caches to be updated.
 
 
 All the members of the following 2 e-groups have the respective access to the project space:
@@ -33,7 +33,7 @@ The following 2 folders are pre-created:
 - /eos/project/a/atlas-itk-pixel-module/www/ (folder for hosting an EOS-site-type website)
 - /eos/project/a/atlas-itk-pixel-module/public/ (public folder for all CERN authenticated users)
  
-Members of the atlas-itk-pixel-module project also have the option of going to their CERNBox (via a web browser) to see the project files
+Members of the eos project "atlas-itk-pixel-module" (cernbox-project-atlas-itk-pixel-module, not the working group mailing list) also have the option of going to their CERNBox (via a web browser) to see the project files
 (go to 'Your projects' and select 'project atlas-itk-pixel-module'). Users need to login to <https://cernbox.cern.ch> ONCE to activate their CERNBox space!
 
 Folder structure:
