@@ -36,7 +36,7 @@ The following 2 folders are pre-created:
 Members of the eos project "atlas-itk-pixel-module" (cernbox-project-atlas-itk-pixel-module, not the working group mailing list) also have the option of going to their CERNBox (via a web browser) to see the project files
 (go to 'Your projects' and select 'project atlas-itk-pixel-module'). Users need to login to <https://cernbox.cern.ch> ONCE to activate their CERNBox space!
 
-Folder structure:
+Folder structure with some suggestions on the subfolder structure:
 
 ```bash
 .
@@ -46,15 +46,45 @@ Folder structure:
     |-- chip#1
 		|-- BDAQ
 			|-- institute#b1 : where institute#b1 stores the data on this chip
+				|-- Scans
+					|-- BeforeTuning
+					|-- TuningDiff
+					|-- TuningLin
+					|-- TuningSync
+					|-- AfterTuning
+					`-- OtherScans
+				|-- Photos
+				|-- Extras
+				|-- comments.txt
+				`-- otherStuff.log
 			|-- ...
 			`-- institute#bn
 		`-- YARR
 			|-- institute#y1 : where institute#y1 stores the data on this chip
+				|-- Scans
+					|-- 000001_std_digitalscan
+					|-- ...
+					|-- 0000x_diff_tune_xxxx
+					|-- ...
+					|-- 0000x_std_xxx_scan
+					`-- OtherScans
+				|-- Photos
+				|-- Extras
+				|-- comments.txt
+				`-- otherStuff.log
 			|-- ...
 			`-- institute#yk
     |-- chip#2
 		|-- BDAQ
 			|-- institute#bn+1 : where institute#bn+1 stores the data on this chip
+				|-- Scans
+					|-- BeforeTuning
+					|-- Tuning
+					|-- AfterTuning
+				|-- Photos
+				|-- Extras
+				|-- comments.txt
+				`-- otherStuff.log
 			|-- ...
 			`-- institute#bn+m
 		`-- YARR
