@@ -40,8 +40,8 @@ Testing with YARR
 =====================
 
 Use the [scanConsole](https://yarr.readthedocs.io/en/latest/scanconsole) for all tunings and scans following [this tuning routine](https://yarr.readthedocs.io/en/latest/rd53a#tuning-routine).
-Run each scan and tuning **by hand**, observe the output in the terminal and look at the plots after scanConsole is finished. Look into the chip configuration and make sure the threshold DAC for each frontend makes sense.
-After scans and tunings a set of [ROOT scripts](https://yarr.readthedocs.io/en/latest/rootscripts) can be used to produce pretty plots and separate the data for each FE.
+Run each scan and tuning **by hand**, observe the output in the terminal and look at the plots after scanConsole is finished. Look into the chip configuration and make sure the threshold DAC for each frontend makes sense.  
+Please use the [ROOT scripts](https://yarr.readthedocs.io/en/latest/rootscripts) produce fitted plots which show separate the data for each FE in pdf format and for all pixels in differential frontend.
 
 
 
@@ -55,7 +55,7 @@ You can either execute with e.g. ``bdaq53 scan_digital`` or
 
 Once made sure that the module works, tune all FEs
 and save the results before and after tuning. For FE specific scans and
-tunings, adjust ``'start\_column'`` and ``'stop_column'`` in the scan code
+tunings, adjust ``'start_column'`` and ``'stop_column'`` in the scan code
 accordingly.
 
 For any tuning, the electron equivalence of injected charge is roughly
@@ -76,10 +76,22 @@ Additional instructions (to be cleaned up):
 
 Preparing the module
 --------------------
-Connect the DP1 connector on the single chip card (SCC) to the “DP_ML 1” connector on the BDAQ board using a standard DisplayPort (DP) cable.
-Make sure the SCC is jumpered for the correct powering mode and your powersupply is setup accordingly. Also double check if the IREF header is jumpered correctly according to this [list](TODO).
+Connect the DP1 connector on the single chip card (SCC) to the “DP_ML 1”
+connector on the BDAQ board using a standard DisplayPort (DP) cable.  
+
+Make sure the SCC is jumpered for the correct powering mode and your power supply
+is setup accordingly.
+
 Observe the BDAQ board. On the FPGA daughterboard there should be 4 LEDs labeled 0-3. LEDs 0 and 1 should be lit up, while LED 3 should be off and LED 4 should be flashing. Once you turn on the powersupply of the SCC, LED4 should stop flashing and either turn off permanently or all four LEDs should be constantly on.
+
+Trimming your chip
+------------------
+
+
+
 Preparing the module configuration file
+----------------------------------------
+
 Download the module specific configuration file from [here](TODO). Verify that the chip serial number and trimbit settings are correct according to this [list](TODO).
 Alternatively you can create the configuration file yourself by creating a copy of ``bdaq53/bdaq53/rd53a_default.cfg.yaml``, renaming it for example to ``0x1234.cfg.yaml``
 and changing ``chip_sn``, ``VREF_A_TRIM``, ``VREF_D_TRIM`` and ``MON_BG_TRIM`` according to the list above. The latter three of these parameters are the optimal voltage trimbit settings for this chip. 
