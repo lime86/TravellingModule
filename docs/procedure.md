@@ -14,14 +14,14 @@ Reception inspection
 ======================
 These basic tasks should be performed upon recieving the package:
 
-   * Please note in the table, [here](https://twiki.cern.ch/twiki/bin/viewauth/Atlas/ContactDetails) when the module was recieved.
-   * Please take photos of the package, as well as performing a visual inspection of the module, being careful to note down (and photograph) any scratches or damage on the board. In addition, please check the wire bond connections under a microscope to make sure there is no detachment during transport.
-   * Check that the jumpers on the Single Chip Card (SCC) are correct. In particular, 
-      * <span style="color:red">The pin headers labelled `PWR_A` and `PWR_D` (outlined in red box in image) should both be set to `VINA` and `VIND`, respectively. This is done by setting the jumper to connect the left and middle pin for each set of three pins (when the board is orientated as seen in the photo). Setting these jumpers ensures the voltage regulators are used during operation. Setting these incorrectly could lead to permanent damage in the chip.</color> 
-      *  
+    1. Please note in the table, [here](https://twiki.cern.ch/twiki/bin/viewauth/Atlas/ContactDetails) when the module was recieved.
+    2. Please take photos of the package, as well as performing a visual inspection of the module, being careful to note down (and photograph) any scratches or damage on the board. In addition, please check the wire bond connections under a microscope to make sure there is no detachment during transport.
+    3. Check that the jumpers on the Single Chip Card (SCC) are correct. In particular, 
+        * <span style="color:red">The pin headers labelled `PWR_A` and `PWR_D` (outlined in red box in image) should both be set to `VINA` and `VIND`, respectively. This is done by setting the jumper to connect the left and middle pin for each set of three pins (when the board is orientated as seen in the photo). Setting these jumpers ensures the voltage regulators are used during operation. Setting these incorrectly could lead to permanent damage in the chip.</color> 
+        * Check that the PLL and CML drivers are being powered from VDDA (left most pins for each set of 6 in yellow box in photo).  
 
-![pins](images/SCC_JumperConfiguration.jpg)
-
+        ![pins](images/SCC_JumperConfiguration_edited.jpg)
+    
 
 Default settings for operation in LDO mode
 
