@@ -4,9 +4,9 @@ This page will cover the full testing procedure expected of sites receiving the 
 The procedure consists of:
 
    * [Reception inspection](#recInsp)
-   * Basic communication
-   * Trim IREF and voltage regulators
-   * Scans (including pre-tune scans, tuning, and post-tuning scans) & plotting
+   * [Basic communication](#basicComm)
+   * [Trim IREF and voltage regulators](#trim)
+   * [Scans](#scans) (including pre-tune scans, tuning, and post-tuning scans) & plotting
 
 There is a checklist at the end of this page, (and attached as a pdf) to keep track of all the tasks which might be useful to print out whilst testing.   
    
@@ -16,7 +16,7 @@ These basic tasks should be performed upon recieving the package:
 
    1. Please note in the table, [here](https://twiki.cern.ch/twiki/bin/viewauth/Atlas/ContactDetails) when the module was recieved.
    2. Please take photos of the package, as well as performing a visual inspection of the module, being careful to note down (and photograph) any scratches or damage on the board. In addition, please check the wire bond connections under a microscope to make sure there is no detachment during transport.
-   3. Check that the jumpers on the Single Chip Card (SCC) are correct. In particular, 
+   3. Check that the jumpers on the Single Chip Card (SCC) are correct. Complete SCC configuration is listed [here](https://twiki.cern.ch/twiki/pub/RD53/RD53ATesting/RD53A_SCC_Configuration.pdf), but in particular make sure to check the following: 
       * <span style="color:red">The pin headers labelled `PWR_A` and `PWR_D` (outlined in red box in image) should both be set to `VINA` and `VIND`, respectively. This is done by setting the jumper to connect the left and middle pin for each set of three pins (when the board is orientated as seen in the photo). <b>Setting these jumpers ensures the voltage regulators are used during operation. Setting these incorrectly could lead to permanent damage in the chip.</b></color> 
       * Check that the PLL and CML drivers are being powered from VDDA by setting VDD_PLL_SEL and VDD_CML_SEL to VDDA, respectively (left most pins for each set of 6 in yellow box in photo).  
       * Make sure, for normal operation, that both the `VREF_ADC` and `IREF_IO` pin headers both have jumpers on them.
@@ -26,28 +26,41 @@ These basic tasks should be performed upon recieving the package:
         ![pins](images/SCC_JumperConfiguration_edited.jpg)
     
 
+<a id="basicComm"></a>Basic communication
+==========================================
+With the chip inspected and jumpers set correctly on the SCC, make a quick check of your scanning setup by configuring the chip.
+
+   - **Remember!** Tests should be done at room temperature with the chip powered in **LDO**
+	mode at **1.8V**. *If using direct powering (not recommended) DO NOT exceed 1.3V, anything higher will likely to
+	result in <b>permanent damage</b>.*
+
+Connect the **Low Voltage (LV)** supply via molex to the `PWR_IN` connector, as shown in the photo below. If you are unclear as to how to set up your LV supply, please see the instructions in [Experimental setup](expsetup.md). Connect the SCC to your readout system (be it YARR or BDAQ) using a displayport connector, as seen in the photo. 
+
+![connectors](images/SCC_connectors.jpg)
+
+Next, edit the configuration (config) file used for these tests. BDAQ and YARR use *different* default configs:
+   * YARR uses: [rd53a_TravellingChip.json](files/rd53a_TravellingChip.json)
+   * BDAQ uses: [rd53a_TravellingChip.cfg.yaml](files/rd53a_TravellingChip.cfg.yaml)
+**NB**: To enable an easier comparison between the two systems these comfigs differ from teh default configs found in both systems according to [these guidelines](https://twiki.cern.ch/twiki/bin/viewauth/RD53/RD53ATesting#Guidelines_for_Front_ends). 
+
+Tasks:
+   1. Please change the chip name in the config to the serial number of your chip (e.g. 0x495 for traveling module 3). The chip name in each config file is:
+      * ``"Name": `` in YARR
+      * ``chip_sn: `` in BDAQ
+   2. Run a digital scan and check the output - this is just to see if you can communicate with the chip and to test your basic setup. If you have any chip communication problems it may be that the internal voltages supplied from the LDO is too low, which will be fixed in the next step.
+
+
 Testing Parameters
 ===============
 We try to provide supplementary information here, please refer to existing documentations. If anything is missing on both sides, feedback would be appreciated.
 
--	On module reception always check/set the correct configuration of the
-	jumpers on the single chip card. Please cross-check the configuration of
-	the SCC with [this document](https://twiki.cern.ch/twiki/pub/RD53/RD53ATesting/RD53A_SCC_Configuration.pdf) or [here](https://yarr.readthedocs.io/en/latest/rd53a).
 
--	Tests should be done at room temperature with the chip powered in **LDO**
-	mode at **1.8V**. (In direct powering mode use maximum 1.3V, anything higher will likely to
-	result in permanent damage.)
-	
--	BDAQ and YARR use different default chip configurations. For a better comparability they are modified with
-	[5uA inner layer parameters](https://twiki.cern.ch/twiki/bin/viewauth/RD53/RD53ATesting#Guidelines_for_Front_ends).
-	The modified chip configurations can be downloaded for YARR: [rd53a_TravellingChip.json](files/rd53a_TravellingChip.json) and for BDAQ: [rd53a_TravellingChip.cfg.yaml](files/rd53a_TravellingChip.cfg.yaml)
 	The only registers that should be changed in the chip configuration file are
 	- IREF (according to waferprobing data, via jumper and trim bits)
 	- VOLTAGE_TRIM (according to waferprobing data and measurements of VDDA and VDDD pins)
 	- MON_BG_TRIM (according to waferprobing data and measurement of <span style="color:red">todo</span>)
 	- VTH_SYNC, VThreshold_LIN, VTH1/2_DIFF (by threshold tuning procedure)
 	- IBIAS_KRUM_SYNC, KRUM_CURR_LIN, VFF_DIFF (by ToT tuning procedure)  	
-	- Please change ``"Name": "JohnDoe",``(YARR) or ``chip_sn: '0x0000'``(BDAQ) according to the chip you test.
 
 -	Check that Iref is set to 4.0 μA: Remove the jumper labeled IREF IO,
 	power up the chip and measure the current between these pins with e.g. a Keithley source meter. If necessary,
