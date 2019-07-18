@@ -26,8 +26,9 @@ These basic tasks should be performed upon recieving the package:
         ![pins](images/SCC_JumperConfiguration_edited.jpg)
     
 
-<a id="basicComm"></a>Basic communication
+Basic communication
 ==========================================
+<a id="basicComm"></a>
 With the chip inspected and jumpers set correctly on the SCC, make a quick check of your scanning setup by configuring the chip.
 
    - **Remember!** Tests should be done at room temperature with the chip powered in **LDO**
@@ -45,7 +46,7 @@ Next, edit the configuration (config) file used for these tests. BDAQ and YARR u
 
 **NB**: To enable an easier comparison between the two systems these comfigs differ from the default configs found in both systems according to [these guidelines](https://twiki.cern.ch/twiki/bin/viewauth/RD53/RD53ATesting#Guidelines_for_Front_ends). 
 
-### Tasks:
+### <a id="commTasks"></a>Tasks:
 
    1. Please change the chip name in the config to the serial number of your chip (e.g. 0x495 for traveling module 3). The chip name in each config file is:
       * ``"Name": `` in YARR
