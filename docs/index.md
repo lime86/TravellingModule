@@ -13,17 +13,17 @@ consistent results.
 Structure of this documentation
 =================================
 This readTheDocs should be followed sequentially for new institutes. 
-**If you are already have an established SCC testing site, please briefly review the experimental setup, but feel free to skip ahead to the Testing Procedure**.
+**If you are already have an established SCC testing site, please briefly review the experimental setup, but feel free to skip ahead to the** [**Testing Procedure**](procedure.md).
 
 Documentation structure:
 
    - [**Travelling modules**](travelmodules.md): Overview of the three travelling modules, including photos
-   - **Commissioning specification**: Minimum requirements for assembly site
-   - **Experimental setup**: Ovewrview of power supplies needed and readout options
-   - **FPGA configuration**: The RD53 chip on the Single Chip Card (SCC) is communicated with via an FPGA in both YARR and BDAQ. This guide will direct for instructions on how to configure both devices.
-   - **Readout software installation**: How to install both YARR and BDAQ. Also contains links to each project's documenation.
-   - **Testing procedure**: All the tests, scans, and checks to run on the travelling module. 
-   - **Data storage**: Where to put the testing results when you're done.
+   - [**Commissioning specification**](comspec.md): Minimum requirements for assembly site
+   - [**Experimental setup**](expsetup.md): Ovewrview of power supplies needed and readout options
+   - [**FPGA configuration**](fw.md): The RD53 chip on the Single Chip Card (SCC) is communicated with via an FPGA in both YARR and BDAQ. This guide will direct for instructions on how to configure both devices.
+   - [**Readout software installation**](sw.md): How to install both YARR and BDAQ. Also contains links to each project's documenation.
+   - [**Testing procedure**](procedure.md): All the tests, scans, and checks to run on the travelling module. 
+   - [**Data storage**](datastorage.md): Where to put the testing results when you're done.
 
 
 Information and Support
