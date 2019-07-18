@@ -3,14 +3,14 @@ Overview
 This page will cover the full testing procedure expected of sites receiving the traveling module.
 The procedure consists of:
 
-   * Reception inspection
+   * [Reception inspection](#recInsp)
    * Basic communication
    * Trim IREF and voltage regulators
    * Scans (including pre-tune scans, tuning, and post-tuning scans) & plotting
 
 There is a checklist at the end of this page, (and attached as a pdf) to keep track of all the tasks which might be useful to print out whilst testing.   
    
-Reception inspection
+<a id="recInsp"></a>Reception inspection
 ======================
 These basic tasks should be performed upon recieving the package:
 
