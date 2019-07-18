@@ -12,12 +12,13 @@ consistent results.
 
 Structure of this documentation
 =================================
-This readTheDocs should be followed sequentially for new institutes. 
+This readTheDocs should be followed sequentially for new institutes.
+
 **If you are already have an established SCC testing site, please briefly review the experimental setup, but feel free to skip ahead to the Testing Procedure**.
 
 Documentation structure:
 
-   - **Travelling modules**: Overview of the three travelling modules, including photos
+   - <span style="color:red"> **Travelling modules** </span>: Overview of the three travelling modules, including photos
    - **Commissioning specification**: Minimum requirements for assembly site
    - **Experimental setup**: Ovewrview of power supplies needed and readout options
    - **FPGA configuration**: The RD53 chip on the Single Chip Card (SCC) is communicated with via an FPGA in both YARR and BDAQ. This guide will direct for instructions on how to configure both devices.
