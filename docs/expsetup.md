@@ -7,7 +7,7 @@ create a page on this Twiki and describe their setup in a free form in
 as much detail as practically needed. General considerations are as
 follows.
 
-For the chip:
+## For the chip:
 
 -   Good quality single or dual channel laboratory power supply capable
     of providing 1.8V @ 1A on each channel.
@@ -18,25 +18,29 @@ For the chip:
 -   Modern PC with &gt; 8 GB RAM, Quad-core CPU, 1TB HD running CentOS 7
     is highly recommended. ```sudo``` rights are required for installing the necessary dependencies, configuring the FPGA etc.
 
-In addition for the module:
+## In addition for the module (chip with sensor):
 
 -   High voltage power supply, e.g. Keithley 2410.
 -   Single pin Lemo cable with 00 connector to bias the sensor.
 
-Details of setups at each site can be found below:
+## Pictures
 
--   [University of
-    Glasgow](CharacterisationSetups#University_of_Glasgow)
-    
+The analog and digital channels of the chip can be powered separately with one channel on the power supply each. They can also be powered together using the same voltage as shown below.
 
-YARR
-----
+![LV](images/powerAD.jpg)
+
+The probing points on the SCC are shown below.
+
+![SCC](images/SCC_labeled.jpg)
 
 
+## Readout systems
+
+### YARR
 
 
-BDAQ
-----
+### BDAQ
+
 Detailed BDAQ hardware setup can be found [here](https://gitlab.cern.ch/silab/bdaq53/wikis/home#hardware-setup).
 
 ### Quick Guide
