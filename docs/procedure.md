@@ -39,11 +39,14 @@ Connect the **Low Voltage (LV)** supply via molex to the `PWR_IN` connector, as 
 ![connectors](images/SCC_connectors.jpg)
 
 Next, edit the configuration (config) file used for these tests. BDAQ and YARR use *different* default configs:
+
    * YARR uses: [rd53a_TravellingChip.json](files/rd53a_TravellingChip.json)
    * BDAQ uses: [rd53a_TravellingChip.cfg.yaml](files/rd53a_TravellingChip.cfg.yaml)
+
 **NB**: To enable an easier comparison between the two systems these comfigs differ from teh default configs found in both systems according to [these guidelines](https://twiki.cern.ch/twiki/bin/viewauth/RD53/RD53ATesting#Guidelines_for_Front_ends). 
 
 Tasks:
+
    1. Please change the chip name in the config to the serial number of your chip (e.g. 0x495 for traveling module 3). The chip name in each config file is:
       * ``"Name": `` in YARR
       * ``chip_sn: `` in BDAQ
