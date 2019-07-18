@@ -6,9 +6,9 @@ If you used YARR, please produce ROOT plots using the provided plotting scripts 
 
 Final full set of data to be uploaded:
 
-- Pre-tuning scans
+- Pre-tuning scans (incl. YARR ROOT plots)
 - Tunings
-- Post-tuning scans
+- Post-tuning scans (incl. YARR ROOT plots)
 - Temperature monitoring data ([data sheet of the NTC on the SCC](https://www.mouser.de/datasheet/2/362/ktthermistor-3035.pdf))
 - Notes on power consumption of the chip before and after configuration
 - A file with additional comments
@@ -78,9 +78,6 @@ Folder structure with some suggestions on the subfolder structure:
 		|-- BDAQ
 			|-- institute#bn+1 : where institute#bn+1 stores the data on this chip
 				|-- Scans
-					|-- BeforeTuning
-					|-- Tuning
-					|-- AfterTuning
 				|-- Photos
 				|-- Extras
 				|-- comments.txt
