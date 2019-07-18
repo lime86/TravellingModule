@@ -17,7 +17,7 @@ This readTheDocs should be followed sequentially for new institutes.
 
 Documentation structure:
 
-   - **Travelling modules**: Overview of the three travelling modules, including photos
+   - [Travelling modules](travelmodules.md): Overview of the three travelling modules, including photos
    - **Commissioning specification**: Minimum requirements for assembly site
    - **Experimental setup**: Ovewrview of power supplies needed and readout options
    - **FPGA configuration**: The RD53 chip on the Single Chip Card (SCC) is communicated with via an FPGA in both YARR and BDAQ. This guide will direct for instructions on how to configure both devices.
@@ -28,20 +28,16 @@ Documentation structure:
 
 Information and Support
 =======================
-##RD53A
-
-
+##RD53
 For RD53A specific questions please consult the [testing
 twiki](https://twiki.cern.ch/twiki/bin/viewauth/RD53/RD53ATesting). There is also a Mattermost team on [RD53A Testing](https://mattermost.web.cern.ch/rd53-testing).
 
 ##Travelling Module
-
 There is an ITkPixel Mattermost team with a channel on the travelling
 module for quick support. Join
 [here](https://mattermost.web.cern.ch/signup_user_complete/?id=ujzsdu51p3nuirqp7h5bkjo5ay).
 
 ##YARR
-
 Please use release v1.0.0 (master branch).
 General YARR documentation can be found on
 [readthedocs](https://yarr.readthedocs.io). For YARR specific questions
