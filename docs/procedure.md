@@ -1,9 +1,33 @@
-=========
 Overview
 =========
 This page will cover the full testing procedure expected of sites receiving the traveling module.
 The procedure consists of:
-   * TODO 
+   * Reception inspection
+   * Basic communication
+   * Trim IREF and voltage regulators
+   * Scans (including pre-tune scans, tuning, and post-tuning scans) & plotting
+There is a checklist at the end of this page, (and attached as a pdf) to keep track of all the tasks which might be useful to print out whilst testing.   
+   
+Reception inspection
+======================
+These basic tasks should be performed upon recieving the package:
+
+   * Please note in the table, [here](https://twiki.cern.ch/twiki/bin/viewauth/Atlas/ContactDetails) when the module was recieved.
+   * Please take photos of the package, as well as performing a visual inspection of the module, being careful to note down (and photograph) any scratches or damage on the board. In addition, please check the wire bond connections under a microscope to make sure there is no detachment during transport.
+   * Check that the jumpers on the Single Chip Card (SCC) are correct. In particular, 
+      * <span style="color:red">The pin headers labelled `PWR_A` and `PWR_D` (outlined in red box in image) should both be set to `VINA` and `VIND`, respectively. This ensure the voltage regulators are used during operation. Setting these incorrectly could lead to permanent damage in the chip.</color> 
+
+Default settings for operation in LDO mode
+
+PWR_A and PWR_D: VINA and VIND (LDO operation)
+VDD_PLL_SEL: VDDA (PLL driver from VDDA supply)
+VDD_CML_SEL: VDDA (CML driver from VDDA supply)
+VREF_ADC (internal ADC voltage reference)
+IREF_IO (internal current refetrence)
+IREF_TRIM: Jumper to 3 to set the internal reference current at 4 μA
+Jumpers JP10 and JP11 should be closed in order to use LANE 2 and 3
+Add a PLL_RST jumper
+Add a 5 kΩ resistor for R3 to pull up Vctrl to Vdd (back side of the SCC)
 
 Testing Parameters
 ===============
