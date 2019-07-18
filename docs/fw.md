@@ -21,7 +21,7 @@ For detailed instructions on FPGA configuration follow [this link](https://gitla
 
 ### Quick guide
 
-Connect the BDAQ board to the PC via USB (USB 2.0 is enough)
+Connect the BDAQ board to the PC via USB (USB 2.0 is enough). 
 Next, [download the frozen travelling module firmware](https://gitlab.cern.ch/silab/bdaq53/wikis/uploads/e27b7af2ca9c12d6072628e8ddec592c/v0.13.0_travelling_module_BDAQ53_1LANE_RX640.tar.gz).
 The firmware can flashed using a simple command:
 ```bash
