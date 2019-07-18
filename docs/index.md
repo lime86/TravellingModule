@@ -10,23 +10,37 @@ sites. Common chip sent around should help unify setups across the
 institutes and help everyone to get up and running while ensuring
 consistent results.
 
+Structure of this documentation
+=================================
+This readTheDocs should be followed sequentially for new institutes. 
+**If you are already have an established SCC testing site, please briefly review the experimental setup, but feel free to skip ahead to the Testing Procedure**.
+
+Documentation structure:
+
+   - **Travelling modules**: Overview of the three travelling modules, including photos
+   - **Commissioning specification**: Minimum requirements for assembly site
+   - **Experimental setup**: Ovewrview of power supplies needed and readout options
+   - **FPGA configuration**: The RD53 chip on the Single Chip Card (SCC) is communicated with via an FPGA in both YARR and BDAQ. This guide will direct for instructions on how to configure both devices.
+   - **Readout software installation**: How to install both YARR and BDAQ. Also contains links to each project's documenation.
+   - **Testing procedure**: All the tests, scans, and checks to run on the travelling module. 
+   - **Data storage**: Where to put the testing results when you're done.
+
+
 Information and Support
 =======================
-RD53A
------
+##RD53A
+
 
 For RD53A specific questions please consult the [testing
 twiki](https://twiki.cern.ch/twiki/bin/viewauth/RD53/RD53ATesting). There is also a Mattermost team on [RD53A Testing](https://mattermost.web.cern.ch/rd53-testing).
 
-Travelling Module
------------------
+##Travelling Module
 
 There is an ITkPixel Mattermost team with a channel on the travelling
 module for quick support. Join
 [here](https://mattermost.web.cern.ch/signup_user_complete/?id=ujzsdu51p3nuirqp7h5bkjo5ay).
 
-YARR
-----
+##YARR
 
 Please use release v1.0.0 (master branch).
 General YARR documentation can be found on
@@ -34,8 +48,7 @@ General YARR documentation can be found on
 and problems there is a [Mattermost
 channel](https://mattermost.web.cern.ch/yarr) for discussions.
 
-BDAQ
-----
+##BDAQ
 Please use ``travelling_module`` branch.
 Instructions can be found
 [here](https://gitlab.cern.ch/silab/bdaq53) with additional information
