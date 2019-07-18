@@ -29,23 +29,23 @@ Documentation structure:
 
 Information and Support
 =======================
-## RD53
+### RD53
 For RD53A specific questions please consult the [testing
 twiki](https://twiki.cern.ch/twiki/bin/viewauth/RD53/RD53ATesting). There is also a Mattermost team on [RD53A Testing](https://mattermost.web.cern.ch/rd53-testing).
 
-## Travelling Module
+### Travelling Module
 There is an ITkPixel Mattermost team with a channel on the travelling
 module for quick support. Join
 [here](https://mattermost.web.cern.ch/signup_user_complete/?id=ujzsdu51p3nuirqp7h5bkjo5ay).
 
-## YARR
+### YARR
 Please use release v1.0.0 (master branch).
 General YARR documentation can be found on
 [readthedocs](https://yarr.readthedocs.io). For YARR specific questions
 and problems there is a [Mattermost
 channel](https://mattermost.web.cern.ch/yarr) for discussions.
 
-## BDAQ
+### BDAQ
 Please use ``travelling_module`` branch.
 Instructions can be found
 [here](https://gitlab.cern.ch/silab/bdaq53) with additional information
