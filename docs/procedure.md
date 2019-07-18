@@ -14,25 +14,17 @@ Reception inspection
 ======================
 These basic tasks should be performed upon recieving the package:
 
-    1. Please note in the table, [here](https://twiki.cern.ch/twiki/bin/viewauth/Atlas/ContactDetails) when the module was recieved.
-    2. Please take photos of the package, as well as performing a visual inspection of the module, being careful to note down (and photograph) any scratches or damage on the board. In addition, please check the wire bond connections under a microscope to make sure there is no detachment during transport.
-    3. Check that the jumpers on the Single Chip Card (SCC) are correct. In particular, 
-        * <span style="color:red">The pin headers labelled `PWR_A` and `PWR_D` (outlined in red box in image) should both be set to `VINA` and `VIND`, respectively. This is done by setting the jumper to connect the left and middle pin for each set of three pins (when the board is orientated as seen in the photo). Setting these jumpers ensures the voltage regulators are used during operation. Setting these incorrectly could lead to permanent damage in the chip.</color> 
-        * Check that the PLL and CML drivers are being powered from VDDA (left most pins for each set of 6 in yellow box in photo).  
+   1. Please note in the table, [here](https://twiki.cern.ch/twiki/bin/viewauth/Atlas/ContactDetails) when the module was recieved.
+   2. Please take photos of the package, as well as performing a visual inspection of the module, being careful to note down (and photograph) any scratches or damage on the board. In addition, please check the wire bond connections under a microscope to make sure there is no detachment during transport.
+   3. Check that the jumpers on the Single Chip Card (SCC) are correct. In particular, 
+      * <span style="color:red">The pin headers labelled `PWR_A` and `PWR_D` (outlined in red box in image) should both be set to `VINA` and `VIND`, respectively. This is done by setting the jumper to connect the left and middle pin for each set of three pins (when the board is orientated as seen in the photo). Setting these jumpers ensures the voltage regulators are used during operation. Setting these incorrectly could lead to permanent damage in the chip.</color> 
+      * Check that the PLL and CML drivers are being powered from VDDA by setting VDD_PLL_SEL and VDD_CML_SEL to VDDA, respectively (left most pins for each set of 6 in yellow box in photo).  
+      * Make sure, for normal operation, that both the `VREF_ADC` and `IREF_IO` pin headers both have jumpers on them.
+      * Ensure that there are jumpers solder to pads `JP10` and `JP11`. 
+      * Finally, ensure that there is a jumper across the `PLL_RST` pin header.
 
         ![pins](images/SCC_JumperConfiguration_edited.jpg)
     
-
-Default settings for operation in LDO mode
-
-VDD_PLL_SEL: VDDA (PLL driver from VDDA supply)
-VDD_CML_SEL: VDDA (CML driver from VDDA supply)
-VREF_ADC (internal ADC voltage reference)
-IREF_IO (internal current refetrence)
-IREF_TRIM: Jumper to 3 to set the internal reference current at 4 μA
-Jumpers JP10 and JP11 should be closed in order to use LANE 2 and 3
-Add a PLL_RST jumper
-Add a 5 kΩ resistor for R3 to pull up Vctrl to Vdd (back side of the SCC)
 
 Testing Parameters
 ===============
