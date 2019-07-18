@@ -9,8 +9,8 @@ The procedure consists of:
    * [Scans](#scans) (including pre-tune scans, tuning, and post-tuning scans) & plotting
 
 There is a checklist at the end of this page, (and attached as a pdf) to keep track of all the tasks which might be useful to print out whilst testing.   
-   
-<a id="recInsp"></a>Reception inspection
+ <a id="recInsp"></a>  
+Reception inspection
 ======================
 These basic tasks should be performed upon recieving the package:
 
@@ -26,9 +26,9 @@ These basic tasks should be performed upon recieving the package:
         ![pins](images/SCC_JumperConfiguration_edited.jpg)
     
 
+<a id="basicComm"></a>
 Basic communication
 ==========================================
-<a id="basicComm"></a>
 With the chip inspected and jumpers set correctly on the SCC, make a quick check of your scanning setup by configuring the chip.
 
    - **Remember!** Tests should be done at room temperature with the chip powered in **LDO**
