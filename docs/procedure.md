@@ -45,8 +45,7 @@ Next, edit the configuration (config) file used for these tests. BDAQ and YARR u
 
 **NB**: To enable an easier comparison between the two systems these comfigs differ from the default configs found in both systems according to [these guidelines](https://twiki.cern.ch/twiki/bin/viewauth/RD53/RD53ATesting#Guidelines_for_Front_ends). 
 
-Tasks:
--------
+### Tasks:
 
    1. Please change the chip name in the config to the serial number of your chip (e.g. 0x495 for traveling module 3). The chip name in each config file is:
       * ``"Name": `` in YARR
