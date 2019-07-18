@@ -12,8 +12,9 @@ consistent results.
 
 Structure of this documentation
 =================================
-This readTheDocs should be followed sequentially for new institutes. 
-**If you are already have an established SCC testing site, please briefly review the experimental setup, but feel free to skip ahead to the Testing Procedure**.
+This readTheDocs should be followed sequentially for new institutes.
+
+.. Note:: If you are already have an established SCC testing site, please briefly review the experimental setup, but feel free to skip ahead to the Testing Procedure.
 
 Documentation structure:
 
