@@ -1,3 +1,10 @@
+=========
+Overview
+=========
+This page will cover the full testing procedure expected of sites receiving the traveling module.
+The procedure consists of:
+   * TODO 
+
 Testing Parameters
 ===============
 We try to provide supplementary information here, please refer to existing documentations. If anything is missing on both sides, feedback would be appreciated.
