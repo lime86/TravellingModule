@@ -40,7 +40,7 @@ With the chip inspected and jumpers set correctly on the SCC, make a quick check
 
 Connect the **Low Voltage (LV)** supply via Molex to the `PWR_IN` connector, as shown in the photo below. If you are unclear as to how to set up your LV supply, please see the instructions in [Experimental setup](expsetup.md). Connect the SCC to your readout system (be it YARR or BDAQ) using a displayport connector, as seen in the photo. 
 
-![connectors](images/SCC_connectorsEdit.jpg)
+![connectors](images/SCC_connectorsEdited.jpeg)
 
 Next, edit the configuration (config) file used for these tests. BDAQ and YARR use *different* default configs:
 
@@ -124,8 +124,8 @@ The general scan procedure is as follows:
 
       * Digital scan
       * Analog scan
-      * Threshold scan
-      <br />
+      * Threshold scan <br />
+   
    * **Tuning scans** should be performed on each frontend separately. The tuning of the linear frontend has to start with _2000e_ and retuned to _1000e_ (execute step 1 and 2 with _2000e_ and repeat with _1000e_). The threshold of all three FE can be tuned to _1k e_. This is the recommended value for the travelling module. The ToT should be tuned to _8 bunch crossings_ at _10k electrons_:
 
       1. Global threshold tuning
@@ -137,8 +137,8 @@ The general scan procedure is as follows:
 
       * Threshold scan
       * ToT scan
-      * Noise scan
-   <br />
+      * Noise scan <br />
+
    * **Post processing (YARR ONLY)**: plot threshold and noise distributions with ROOT scripts.
 
 Either YARR or BDAQ can be used to run these scans. The rest of this page describes how to do this with both systems.
