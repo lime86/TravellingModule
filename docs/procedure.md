@@ -65,12 +65,12 @@ Trim IREF and voltage regulators
 
 In this step you will trim the reference current and supplied internal voltages by (a) measuring either a current or voltage and (b) modifing the jumpers on the board or parameters in the configuration file. 
 
-   * <span style="color:red"><b>CAUTION:</b> Injecting current into the IREF instead of measuring it could permanently damage the chip. <b>DO NOT</b> attempt to measure the current across IREF if you are unsure how to!!</span>
 
 ## <a id="iref"></a>IREF trim
 
 **Tasks**:
-
+<span style="color:red"><b>CAUTION:</b> Injecting current into the IREF instead of measuring it could permanently damage the chip. <b>DO NOT</b> attempt to measure the current across IREF if you are unsure how to!!</span>
+   
    1. Power down the LV supply.
    2. On the SCC, remove the jumper across the pin header labeled `IREF_IO` (see photo). 
    3. Set up a current measuring device such as the [Keithley 5100](http://research.physics.illinois.edu/bezryadin/labprotocol/Keithley2400Manual.pdf) and set it up to **measure** a current. Ensure that the range of the device is set to measure at least 4 [μA], on the Keithley this is achieved by setting the measurement display range to at least 10 [μA]. 
