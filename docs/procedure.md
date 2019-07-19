@@ -43,8 +43,8 @@ Testing with YARR
 =====================
 
 Use the [scanConsole](https://yarr.readthedocs.io/en/latest/scanconsole) for all tunings and scans following [this tuning routine](https://yarr.readthedocs.io/en/latest/rd53a#tuning-routine).
-Run each scan and tuning **by hand**, observe the output in the terminal and look at the plots after scanConsole is finished. Look into the chip configuration and make sure the threshold DAC for each frontend makes sense.  
-Please use the [ROOT scripts](https://yarr.readthedocs.io/en/latest/rootscripts) (Threshold and NoiseMap) to produce fitted plots which show separate the data for each FE in pdf format and for all pixels in differential frontend.
+Run each scan and tuning **by hand**, observe the output in the terminal and look at the plots after scanConsole is finished. Look into the chip configuration and make sure the threshold DAC for each frontend makes sense. Change the range of InjVcalDiff in threshold scan to start from 0 to an appropriate value. 1 DAC is appropriately 10 electrons.  
+Please use the [ROOT scripts](https://yarr.readthedocs.io/en/latest/rootscripts) (Threshold and NoiseMap) to produce fitted plots which show separate the data for each FE in pdf format and only the good pixels in differential frontend.
 
 
 Testing with BDAQ
@@ -155,4 +155,4 @@ accordingly in the code):
 
 Post processing
 ---------------
-For YARR, plot threshold and noise distributions with ROOT scripts.
+For YARR, plot threshold and noise distributions with ROOT scripts using only the good pixels for differential FE.
