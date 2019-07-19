@@ -113,6 +113,7 @@ The general scan procedure is as follows:
       * Digital scan
       * Analog scan
       * Threshold scan
+
    * **Tuning scans** should be performed on each frontend separately. The tuning of the linear frontend has to start with _2000e_ and retuned to _1000e_ (execute step 1 and 2 with _2000e_ and repeat with _1000e_). The threshold of all three FE can be tuned to _1k e_. This is the recommended value for the travelling module. The ToT should be tuned to _8 bunch crossings_ at _10k electrons_:
 
       1. Global threshold tuning
