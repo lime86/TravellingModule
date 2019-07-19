@@ -81,6 +81,13 @@ In this step you will trim the reference current and supplied internal voltages 
    7. **Make note of the final jumper configuration on `IREF_TRIM` and the current measurement.**
    8. Power down the LV supply, disconnect the connectors to `IREF_IO`, and replace the jumper across `IREF_IO`.
 
+## VREF_ADC trim
+
+Measure the jumper with the label ``VREF_ADC`` against GND. Adjust the DACs so that this value is as close to **0.9 V** as possible.
+
+- YARR: ``AdcRefTrim``
+- BDAQ: ``MON_BG_TRIM``
+
 ## <a id="iref"></a>Internal voltage (VDD) trimming
 
 If you previously were not able to configure the chip, it may be because the internal voltages supplied from the regulators were too low. This step will measure these voltages and show you how to correct them.
