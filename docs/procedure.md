@@ -58,8 +58,8 @@ Next, edit the configuration (config) file used for these tests. BDAQ and YARR u
 
 <a id="trim"></a>
 
-Trim IREF and voltage regulators
-=================================
+Trim IREF, the voltage regulators, and the ADC voltage
+=======================================================
 
 ![measurePins](images/SCC_labeled_yellowLabels.jpg)
 
@@ -81,7 +81,7 @@ In this step you will trim the reference current and supplied internal voltages 
    7. **Make note of the final jumper configuration on `IREF_TRIM` and the current measurement.**
    8. Power down the LV supply, disconnect the connectors to `IREF_IO`, and replace the jumper across `IREF_IO`.
 
-## VREF_ADC trim
+## <a id="VREF_ADC"></a>VREF_ADC trim
 
 Measure the jumper with the label ``VREF_ADC`` against GND. Adjust the DACs so that this value is as close to **0.9 V** as possible.
 
@@ -125,7 +125,7 @@ The general scan procedure is as follows:
       * Digital scan
       * Analog scan
       * Threshold scan
-<br>
+      <br />
    * **Tuning scans** should be performed on each frontend separately. The tuning of the linear frontend has to start with _2000e_ and retuned to _1000e_ (execute step 1 and 2 with _2000e_ and repeat with _1000e_). The threshold of all three FE can be tuned to _1k e_. This is the recommended value for the travelling module. The ToT should be tuned to _8 bunch crossings_ at _10k electrons_:
 
       1. Global threshold tuning
@@ -138,7 +138,7 @@ The general scan procedure is as follows:
       * Threshold scan
       * ToT scan
       * Noise scan
-   <br>
+   <br />
    * **Post processing (YARR ONLY)**: plot threshold and noise distributions with ROOT scripts.
 
 Either YARR or BDAQ can be used to run these scans. The rest of this page describes how to do this with both systems.
