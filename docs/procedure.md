@@ -107,22 +107,15 @@ Scanning and tuning
 For the traveling module, we require that all three FE variants (differential, linear, and synchronous) on RD53A module are tuned. The general scan procedure is as follows:
 
 
-#### Pre-tuning scans
-For all frontends (can be FE specific if the column range changed
-accordingly in the code):
-
--   digital scan
--   analog scan
--   threshold scan
-
-#### Tunings
-For each frontend separately. The tuning of the linear frontend has to start with
-2000e and retuned to 1000e (execute step 1 and 2 with 2000e and repeat with 1000e).
-
-1.	global threshold tuning
-2.	pixel threshold tuning (not for syncFE)
-3.	time over threshold tuning
-4.	re-adjust pixel threshold
+   * **Pre-tuning scans** should be run over all frontends: 
+      * Digital scan
+      * Analog scan
+      * Threshold scan
+   * **Tunings** should be performed on each frontend separately. The tuning of the linear frontend has to start with 2000e and retuned to 1000e (execute step 1 and 2 with 2000e and repeat with 1000e).
+      1. Global threshold tuning
+      2. Pixel threshold tuning (not for syncFE)
+      3. Time over threshold tuning
+      4. Re-adjust pixel threshold
 
 #### Post-tuning scans
 For all frontends (can be FE specific if the column range changed
