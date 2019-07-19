@@ -18,7 +18,7 @@ These basic tasks should be performed upon recieving the package:
 
    1. Please note in the table, [here](https://twiki.cern.ch/twiki/bin/viewauth/Atlas/ContactDetails) when the module was recieved.
    2. Please take photos of the package, as well as performing a visual inspection of the module, being careful to note down (and photograph) any scratches or damage on the board. In addition, please check the wire bond connections under a microscope to make sure there is no detachment during transport.
-   3. Check that the jumpers on the Single Chip Card (SCC) are correct. Complete SCC configuration is listed [here](https://twiki.cern.ch/twiki/pub/RD53/RD53ATesting/RD53A_SCC_Configuration.pdf), but in particular make sure to check the following: 
+   3. Check that the jumpers on the Single Chip Card (SCC) are correct. Complete SCC configuration is listed [here](https://twiki.cern.ch/twiki/pub/RD53/RD53ATesting/RD53A_SCC_Configuration.pdf) (note that it does not mention the `PLL_RST` pin header, which should have a jumper across it. Check page 3, which has a diagram of the jumpers.). In particular, note:
       * <span style="color:red">The pin headers labelled `PWR_A` and `PWR_D` (outlined in red box in image) should both be set to `VINA` and `VIND`, respectively. This is done by setting the jumper to connect the left and middle pin for each set of three pins (when the board is orientated as seen in the photo). <b>Setting these jumpers ensures the voltage regulators are used during operation. Setting these incorrectly could lead to permanent damage in the chip.</b></color> 
       * Check that the PLL and CML drivers are being powered from VDDA by setting VDD_PLL_SEL and VDD_CML_SEL to VDDA, respectively (left most pins for each set of 6 in yellow box in photo).  
       * Make sure, for normal operation, that both the `VREF_ADC` and `IREF_IO` pin headers both have jumpers on them.
@@ -38,9 +38,9 @@ With the chip inspected and jumpers set correctly on the SCC, make a quick check
 	mode at **1.8V**. *If using direct powering (not recommended) DO NOT exceed 1.3V, anything higher will likely to
 	result in <b>permanent damage</b>.*
 
-Connect the **Low Voltage (LV)** supply via molex to the `PWR_IN` connector, as shown in the photo below. If you are unclear as to how to set up your LV supply, please see the instructions in [Experimental setup](expsetup.md). Connect the SCC to your readout system (be it YARR or BDAQ) using a displayport connector, as seen in the photo. 
+Connect the **Low Voltage (LV)** supply via Molex to the `PWR_IN` connector, as shown in the photo below. If you are unclear as to how to set up your LV supply, please see the instructions in [Experimental setup](expsetup.md). Connect the SCC to your readout system (be it YARR or BDAQ) using a displayport connector, as seen in the photo. 
 
-![connectors](images/SCC_connectors.jpg)
+![connectors](images/SCC_connectorsEdit.jpg)
 
 Next, edit the configuration (config) file used for these tests. BDAQ and YARR use *different* default configs:
 
@@ -61,7 +61,7 @@ Next, edit the configuration (config) file used for these tests. BDAQ and YARR u
 Trim IREF and voltage regulators
 =================================
 
-![measurePins](images/SCC_labeled_new.jpg)
+![measurePins](images/SCC_labeled_yellowLabels.jpg)
 
 In this step you will trim the reference current and supplied internal voltages by (a) measuring either a current or voltage and (b) modifing the jumpers on the board or parameters in the configuration file. 
 
@@ -74,10 +74,10 @@ In this step you will trim the reference current and supplied internal voltages 
    
    1. Power down the LV supply.
    2. On the SCC, remove the jumper across the pin header labeled `IREF_IO` (see photo). 
-   3. Set up a current measuring device such as the [Keithley 2400](http://research.physics.illinois.edu/bezryadin/labprotocol/Keithley2400Manual.pdf) and set it up to **measure** a current. Ensure that the range of the device is set to measure at least 4 [μA], on the Keithley this is achieved by setting the measurement display range to at least 10 [μA]. 
+   3. Set up a current measuring device such as the [Keithley 2400](http://research.physics.illinois.edu/bezryadin/labprotocol/Keithley2400Manual.pdf) and set it up to **measure** a current. Please do not use a simple multimeter for this task. Ensure that the range of the device is set to measure at least 4 μA, on the Keithley this is achieved by setting the measurement display range to at least 10 μA. 
    4. Connect the current-measuring device to the `IREF_IO` pin headers. 
    5. Power up the LV supply as before and measure the current. 
-   6. If the current is NOT 4.0 [μA] you can trim it using the `IRE_TRIM` bits. This is a 4-bit register, so you can use multiple jumpers to trim.
+   6. If the current is NOT 4.0 μA you can trim it using the `IRE_TRIM` bits. This is a 4-bit register, so you can use multiple jumpers to trim.
    7. **Make note of the final jumper configuration on `IREF_TRIM` and the current measurement.**
    8. Power down the LV supply, disconnect the connectors to `IREF_IO`, and replace the jumper across `IREF_IO`.
 
@@ -89,10 +89,10 @@ If you previously were not able to configure the chip, it may be because the int
 
    1. Power up the chip and configure it with the same config file you used previously.
    2. Using a voltmeter, probe VDDA with respect to ground. You can find the VDDA test pin on the third pin of `PRW_A`. There are multiple ground references on the board, such as the top-most pin of the `SLDO_PLL_MON` array (see photo).
-   3. If the voltage is too low (1.22 [V] at minimum), increase it by editing the trim in the chip config file:
+   3. If the voltage is too low (1.2 V at minimum), increase it by editing the trim in the chip config file:
        * YARR: increase ``SldoAnalogTrim``.
 	   * BDAQ: increase ``VREF_A_TRIM``.
-   4. Re-configure the chip and repeat steps (2) and (3) until VDDA is ~1.22 [V].
+   4. Re-configure the chip and repeat steps (2) and (3) until VDDA is ~1.2 V.
    5. Repeat steps (2)-(4) for VDDD. This time measure the third pin of `PRW_D` and edit the following trims:
       * YARR: ``SldoDigitalTrim``
       * BDAQ: ``VREF_D_TRIM``.
@@ -118,7 +118,7 @@ The general scan procedure is as follows:
       * Digital scan
       * Analog scan
       * Threshold scan
-
+<br>
    * **Tuning scans** should be performed on each frontend separately. The tuning of the linear frontend has to start with _2000e_ and retuned to _1000e_ (execute step 1 and 2 with _2000e_ and repeat with _1000e_). The threshold of all three FE can be tuned to _1k e_. This is the recommended value for the travelling module. The ToT should be tuned to _8 bunch crossings_ at _10k electrons_:
 
       1. Global threshold tuning
@@ -131,7 +131,7 @@ The general scan procedure is as follows:
       * Threshold scan
       * ToT scan
       * Noise scan
-   
+   <br>
    * **Post processing (YARR ONLY)**: plot threshold and noise distributions with ROOT scripts.
 
 Either YARR or BDAQ can be used to run these scans. The rest of this page describes how to do this with both systems.
