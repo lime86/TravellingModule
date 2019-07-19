@@ -104,44 +104,35 @@ If, however, after trimming the voltages you are still unable to communicate wit
 
 Scanning and tuning
 ====================
-For the traveling module, we require that all three FE variants (differential, linear, and synchronous) on RD53A module are tuned. The general scan procedure is as follows:
+For the traveling module, we require that all three FE variants (differential, linear, and synchronous) on RD53A module are tuned. Whilst running these scans, the temperature of the chip should be monitored visa the `TP_NTC` pin header (see experimental setup for details). This temperature log, as well as the output of the scans listed below, should all be saved to the database. 
+The general scan procedure is as follows:
 
 
    * **Pre-tuning scans** should be run over all frontends: 
       * Digital scan
       * Analog scan
       * Threshold scan
-   * **Tunings** should be performed on each frontend separately. The tuning of the linear frontend has to start with 2000e and retuned to 1000e (execute step 1 and 2 with 2000e and repeat with 1000e).
+   * **Tunings** should be performed on each frontend separately. The tuning of the linear frontend has to start with 2000e and retuned to 1000e (execute step 1 and 2 with 2000e and repeat with 1000e). The threshold of all three FE can be tuned to **1k e**. This is the recommended value for the travelling module. The ToT should be tuned to **8 bunch crossings** at **10k electrons**.
       1. Global threshold tuning
       2. Pixel threshold tuning (not for syncFE)
       3. Time over threshold tuning
       4. Re-adjust pixel threshold
+   * **Post-tuning scans** should be run over all frontends:
+      * Threshold scan
+      * ToT scan
+      * Noise scan
+   * **Post processing (YARR ONLY)**: plot threshold and noise distributions with ROOT scripts.
 
-#### Post-tuning scans
-For all frontends (can be FE specific if the column range changed
-accordingly in the code):
+Either YARR or BDAQ can be used to run these scans. The rest of this page describes how to do this with both systems.
 
--	threshold scan
--	ToT scan
-
-#### Post processing
-For YARR, plot threshold and noise distributions with ROOT scripts.
-	The threshold of all three FE can be tuned to
-	**1000e**. This is the recommended value for the travelling module. The ToT
-	should be tuned to **8BC** at **10000e**.
-
-
-Testing with YARR
-=====================
+## Testing with YARR
 
 Use the [scanConsole](https://yarr.readthedocs.io/en/latest/scanconsole) for all tunings and scans following [this tuning routine](https://yarr.readthedocs.io/en/latest/rd53a#tuning-routine).
 Run each scan and tuning **by hand**, observe the output in the terminal and look at the plots after scanConsole is finished. Look into the chip configuration and make sure the threshold DAC for each frontend makes sense.  
 Please use the [ROOT scripts](https://yarr.readthedocs.io/en/latest/rootscripts) (Threshold and NoiseMap) to produce fitted plots which show separate the data for each FE in pdf format and for all pixels in differential frontend.
 
 
-
-Testing with BDAQ
-=====================
+## Testing with BDAQ
 
 Follow instructions
 [here](https://gitlab.cern.ch/silab/bdaq53/wikis/User-guide/General-usage).
@@ -168,7 +159,7 @@ Pixel threshold tuning uses ``meta_tune_local_threshold.py``.
 
 Detailed instructions:
 -------------------------------------------
-
+TODO: this seems like a lot of repeated information! Can we link to BDAQ documentation instead?
 ### Preparing the module
 
 Connect the DP1 connector on the single chip card (SCC) to the “DP_ML 1”
@@ -214,19 +205,3 @@ This means that the whole pixel matrix will be scanned. Start the scan by runnin
 ```
 Check the output: In the very beginning it should tell you which chip configuration file it is using. Verify that this is the file you downloaded or created in the previous section. Let the scan finish and open the output .pdf file. Double check that the correct chip serial number is displayed in the first sentence on the first page. Scroll to the second page. The **Event status** histogram should be empty. Scroll to the third page. The **Occupancy** map should be homogeneously yellow, showing an occupancy of 100 hits for every pixel. The total amount of hits should be \sum = 7680000, or 76800 pixels with 100 hits each.
 Congratulations, you are ready to begin testing the module.
-
-
-Tuning protocol
-===============
-
-Testing Parameters
-===============
-We try to provide supplementary information here, please refer to existing documentations. If anything is missing on both sides, feedback would be appreciated.
-
-
-	The only registers that should be changed in the chip configuration file are
-	- IREF (according to waferprobing data, via jumper and trim bits)
-	- VOLTAGE_TRIM (according to waferprobing data and measurements of VDDA and VDDD pins)
-	- MON_BG_TRIM (according to waferprobing data and measurement of <span style="color:red">todo</span>)
-	- VTH_SYNC, VThreshold_LIN, VTH1/2_DIFF (by threshold tuning procedure)
-	- IBIAS_KRUM_SYNC, KRUM_CURR_LIN, VFF_DIFF (by ToT tuning procedure)  	
