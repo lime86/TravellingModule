@@ -100,29 +100,39 @@ If you previously were not able to configure the chip, it may be because the int
 
 If, however, after trimming the voltages you are still unable to communicate with the chip having tried these measures, please see [FAQ & Troubleshooting](../troubleshooting).
 
+<a id="scans"></a>
 
-Testing Parameters
-===============
-We try to provide supplementary information here, please refer to existing documentations. If anything is missing on both sides, feedback would be appreciated.
+Scanning and tuning
+====================
+For the traveling module, we require that all three FE variants (differential, linear, and synchronous) on RD53A module are tuned. The general scan procedure is as follows:
 
 
-	The only registers that should be changed in the chip configuration file are
-	- IREF (according to waferprobing data, via jumper and trim bits)
-	- VOLTAGE_TRIM (according to waferprobing data and measurements of VDDA and VDDD pins)
-	- MON_BG_TRIM (according to waferprobing data and measurement of <span style="color:red">todo</span>)
-	- VTH_SYNC, VThreshold_LIN, VTH1/2_DIFF (by threshold tuning procedure)
-	- IBIAS_KRUM_SYNC, KRUM_CURR_LIN, VFF_DIFF (by ToT tuning procedure)  	
+#### Pre-tuning scans
+For all frontends (can be FE specific if the column range changed
+accordingly in the code):
 
--	Check that Iref is set to 4.0 μA: Remove the jumper labeled IREF IO,
-	power up the chip and measure the current between these pins with e.g. a Keithley source meter. If necessary,
-	adjust the 4-bit IREF TRIM jumpers. Remember to put back the IREF IO jumper for operation.
+-   digital scan
+-   analog scan
+-   threshold scan
 
--	Measure **VDDA** and **VDDD** on the SCC and set them to **1.2V** in the according entries in the chip configuration file.
-	- For YARR: change ``SldoAnalogTrim`` and ``SldoDigitalTrim``. If you still get ``data not valid`` errors, adjust VDDA to a value that this error disappears. More information in [FAQ & Troubleshooting](../troubleshooting).
-	- For BDAQ: change ``VREF_A_TRIM`` and ``VREF_D_TRIM``.
+#### Tunings
+For each frontend separately. The tuning of the linear frontend has to start with
+2000e and retuned to 1000e (execute step 1 and 2 with 2000e and repeat with 1000e).
 
--	All three FE on the RD53A module is advised to be tuned. The tuning
-	protocol is shown below. 
+1.	global threshold tuning
+2.	pixel threshold tuning (not for syncFE)
+3.	time over threshold tuning
+4.	re-adjust pixel threshold
+
+#### Post-tuning scans
+For all frontends (can be FE specific if the column range changed
+accordingly in the code):
+
+-	threshold scan
+-	ToT scan
+
+#### Post processing
+For YARR, plot threshold and noise distributions with ROOT scripts.
 	The threshold of all three FE can be tuned to
 	**1000e**. This is the recommended value for the travelling module. The ToT
 	should be tuned to **8BC** at **10000e**.
@@ -216,33 +226,14 @@ Congratulations, you are ready to begin testing the module.
 Tuning protocol
 ===============
 
-Pre-tuning scans
-----------------
-For all frontends (can be FE specific if the column range changed
-accordingly in the code):
+Testing Parameters
+===============
+We try to provide supplementary information here, please refer to existing documentations. If anything is missing on both sides, feedback would be appreciated.
 
--   digital scan
--   analog scan
--   threshold scan
 
-Tunings
--------
-For each frontend separately. The tuning of the linear frontend has to start with
-2000e and retuned to 1000e (execute step 1 and 2 with 2000e and repeat with 1000e).
-
-1.	global threshold tuning
-2.	pixel threshold tuning (not for syncFE)
-3.	time over threshold tuning
-4.	re-adjust pixel threshold
-
-Post-tuning scans
------------------
-For all frontends (can be FE specific if the column range changed
-accordingly in the code):
-
--	threshold scan
--	ToT scan
-
-Post processing
----------------
-For YARR, plot threshold and noise distributions with ROOT scripts.
+	The only registers that should be changed in the chip configuration file are
+	- IREF (according to waferprobing data, via jumper and trim bits)
+	- VOLTAGE_TRIM (according to waferprobing data and measurements of VDDA and VDDD pins)
+	- MON_BG_TRIM (according to waferprobing data and measurement of <span style="color:red">todo</span>)
+	- VTH_SYNC, VThreshold_LIN, VTH1/2_DIFF (by threshold tuning procedure)
+	- IBIAS_KRUM_SYNC, KRUM_CURR_LIN, VFF_DIFF (by ToT tuning procedure)  	
