@@ -56,6 +56,22 @@ Next, edit the configuration (config) file used for these tests. BDAQ and YARR u
       * ``chip_sn: `` in BDAQ
    2. Run a digital scan and check the output - this is just to see if you can communicate with the chip and to test your basic setup. If you have any chip communication problems it may be that the internal voltages supplied from the LDO is too low, which will be fixed in the next step.
 
+<a id="trim"></a>
+
+Trim IREF and voltage regulators
+=================================
+In this step you will trim the reference current and supplied internal voltages by (a) measuring either a current or voltage and (b) modifing the jumpers on the board or parameters in the configuration file. 
+
+   * <span style="color:red"><b>CAUTION:</b> Injecting current into the IREF by accident could permanently damage the chip. <b>DO NOT</b> attempt if you are unsure how to measure current!</span>
+
+## <a id="iref"></a>IREF trim
+
+![measurePins](images/SCC_labeled.jpg)
+
+Tasks:
+   1. Power down the LV supply.
+   2. On the SCC, remove the jumper across the pin header labeled `IREF_IO` (see photo). 
+   2. Connect a current measuring device such as the [Keithley 5100](http://research.physics.illinois.edu/bezryadin/labprotocol/Keithley2400Manual.pdf) and set it up to **measure** a current. Ensure that the range of the device is set to measure at least 4 [μA], on the Keithley this is achieved by setting the measurement display range to at least 10 [μA]. Connect the current-measuring device to 
 
 Testing Parameters
 ===============
