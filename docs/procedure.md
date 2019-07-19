@@ -61,7 +61,7 @@ Next, edit the configuration (config) file used for these tests. BDAQ and YARR u
 Trim IREF and voltage regulators
 =================================
 
-![measurePins](images/SCC_labeled.jpg)
+![measurePins](images/SCC_labeled_new.jpg)
 
 In this step you will trim the reference current and supplied internal voltages by (a) measuring either a current or voltage and (b) modifing the jumpers on the board or parameters in the configuration file. 
 
@@ -108,20 +108,25 @@ For the traveling module, we require that all three FE variants (differential, l
 The general scan procedure is as follows:
 
 
-   * **Pre-tuning scans should be run over all frontends**: 
+   * **Pre-tuning scans** should be run over all frontends: 
+
       * Digital scan
       * Analog scan
       * Threshold scan
-   * **Tunings should be performed on each frontend separately. The tuning of the linear frontend has to start with _2000e_ and retuned to _1000e_ (execute step 1 and 2 with _2000e_ and repeat with _1000e_). The threshold of all three FE can be tuned to _1k e_. This is the recommended value for the travelling module. The ToT should be tuned to _8 bunch crossings_ at _10k electrons_**.
+   * **Tuning scans** should be performed on each frontend separately. The tuning of the linear frontend has to start with _2000e_ and retuned to _1000e_ (execute step 1 and 2 with _2000e_ and repeat with _1000e_). The threshold of all three FE can be tuned to _1k e_. This is the recommended value for the travelling module. The ToT should be tuned to _8 bunch crossings_ at _10k electrons_:
+
       1. Global threshold tuning
       2. Pixel threshold tuning (not for syncFE)
       3. Time over threshold tuning
       4. Re-adjust pixel threshold
-   * **Post-tuning scans should be run over all frontends**:
+   
+   * **Post-tuning** scans should be run over all frontends:
+
       * Threshold scan
       * ToT scan
       * Noise scan
-   * **Post processing (YARR ONLY): plot threshold and noise distributions with ROOT scripts**.
+   
+   * **Post processing (YARR ONLY)**: plot threshold and noise distributions with ROOT scripts.
 
 Either YARR or BDAQ can be used to run these scans. The rest of this page describes how to do this with both systems.
 
