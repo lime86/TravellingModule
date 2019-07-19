@@ -17,6 +17,10 @@ All 4 digits in the key are different
 What is the code for the padlock  
 
 
+Temperature Logger
+------------------
+Details on the temperature logger can be found [here](https://mindsetsonline.co.uk/shop/mini-temperature-datalogger)
+
 
 Chip 1
 ------
