@@ -60,18 +60,45 @@ Next, edit the configuration (config) file used for these tests. BDAQ and YARR u
 
 Trim IREF and voltage regulators
 =================================
-In this step you will trim the reference current and supplied internal voltages by (a) measuring either a current or voltage and (b) modifing the jumpers on the board or parameters in the configuration file. 
-
-   * <span style="color:red"><b>CAUTION:</b> Injecting current into the IREF by accident could permanently damage the chip. <b>DO NOT</b> attempt if you are unsure how to measure current!</span>
-
-## <a id="iref"></a>IREF trim
 
 ![measurePins](images/SCC_labeled.jpg)
 
-Tasks:
+In this step you will trim the reference current and supplied internal voltages by (a) measuring either a current or voltage and (b) modifing the jumpers on the board or parameters in the configuration file. 
+
+   * <span style="color:red"><b>CAUTION:</b> Injecting current into the IREF instead of measuring it could permanently damage the chip. <b>DO NOT</b> attempt to measure the current across IREF if you are unsure how to!!</span>
+
+## <a id="iref"></a>IREF trim
+
+**Tasks**:
+
    1. Power down the LV supply.
    2. On the SCC, remove the jumper across the pin header labeled `IREF_IO` (see photo). 
-   2. Connect a current measuring device such as the [Keithley 5100](http://research.physics.illinois.edu/bezryadin/labprotocol/Keithley2400Manual.pdf) and set it up to **measure** a current. Ensure that the range of the device is set to measure at least 4 [μA], on the Keithley this is achieved by setting the measurement display range to at least 10 [μA]. Connect the current-measuring device to 
+   3. Set up a current measuring device such as the [Keithley 5100](http://research.physics.illinois.edu/bezryadin/labprotocol/Keithley2400Manual.pdf) and set it up to **measure** a current. Ensure that the range of the device is set to measure at least 4 [μA], on the Keithley this is achieved by setting the measurement display range to at least 10 [μA]. 
+   4. Connect the current-measuring device to the `IREF_IO` pin headers. 
+   5. Power up the LV supply as before and measure the current. 
+   6. If the current is NOT 4.0 [μA] you can trim it using the `IRE_TRIM` bits. This is a 4-bit register, so you can use multiple jumpers to trim.
+   7. **Make note of the final jumper configuration on `IREF_TRIM` and the current measurement.**
+   8. Power down the LV supply, disconnect the connectors to `IREF_IO`, and replace the jumper across `IREF_IO`.
+
+## <a id="iref"></a>Internal voltage (VDD) trimming
+
+If you previously were not able to configure the chip, it may be because the internal voltages supplied from the regulators were too low. This step will measure these voltages and show you how to correct them.
+
+**Tasks**: 
+
+   1. Power up the chip and configure it with the same config file you used previously.
+   2. Using a voltmeter, probe VDDA with respect to ground. You can find the VDDA test pin on the third pin of `PRW_A`. There are multiple ground references on the board, such as the top-most pin of the `SLDO_PLL_MON` array (see photo).
+   3. If the voltage is too low (1.22 [V] at minimum), increase it by editing the trim in the chip config file:
+       * YARR: increase ``SldoAnalogTrim``.
+	   * BDAQ: increase ``VREF_A_TRIM``.
+   4. Re-configure the chip and repeat steps (2) and (3) until VDDA is ~1.22 [V].
+   5. Repeat steps (2)-(4) for VDDD. This time measure the third pin of `PRW_D` and edit the following trims:
+      * YARR: ``SldoDigitalTrim``
+      * BDAQ: ``VREF_D_TRIM``.
+   6. **Record both the voltages measured and the final trim values used.** 
+
+If, however, after trimming the voltages you are still unable to communicate with the chip having tried these measures, please see [FAQ & Troubleshooting](../troubleshooting).
+
 
 Testing Parameters
 ===============
