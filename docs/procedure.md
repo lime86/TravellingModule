@@ -2,6 +2,10 @@ Testing Parameters
 ===============
 We try to provide supplementary information here, please refer to existing documentations. If anything is missing on both sides, feedback would be appreciated.
 
+The probing points on the SCC are shown below.
+
+![SCC](images/SCC_labeled.jpg)
+
 -	On module reception always check/set the correct configuration of the
 	jumpers on the single chip card. Please cross-check the configuration of
 	the SCC with [this document](https://twiki.cern.ch/twiki/pub/RD53/RD53ATesting/RD53A_SCC_Configuration.pdf) or [here](https://yarr.readthedocs.io/en/latest/rd53a).
@@ -14,14 +18,13 @@ We try to provide supplementary information here, please refer to existing docum
 	[5uA inner layer parameters](https://twiki.cern.ch/twiki/bin/viewauth/RD53/RD53ATesting#Guidelines_for_Front_ends).
 	The modified chip configurations can be downloaded for YARR: [rd53a_TravellingChip.json](files/rd53a_TravellingChip.json) and for BDAQ: [rd53a_TravellingChip.cfg.yaml](files/rd53a_TravellingChip.cfg.yaml)
 	The only registers that should be changed in the chip configuration file are
-	- IREF (according to waferprobing data, via jumper and trim bits)
 	- VOLTAGE_TRIM (according to waferprobing data and measurements of VDDA and VDDD pins)
 	- MON_BG_TRIM (according to waferprobing data and measurement of <span style="color:red">todo</span>)
 	- VTH_SYNC, VThreshold_LIN, VTH1/2_DIFF (by threshold tuning procedure)
 	- IBIAS_KRUM_SYNC, KRUM_CURR_LIN, VFF_DIFF (by ToT tuning procedure)  	
 	- Please change ``"Name": "JohnDoe",``(YARR) or ``chip_sn: '0x0000'``(BDAQ) according to the chip you test.
 
--	Check that Iref is set to 4.0 μA: Remove the jumper labeled IREF IO,
+-	Check that IREF is set to 4.0 μA: Remove the jumper labeled IREF IO,
 	power up the chip and measure the current between these pins with e.g. a Keithley source meter. If necessary,
 	adjust the 4-bit IREF TRIM jumpers. Remember to put back the IREF IO jumper for operation.
 
@@ -42,7 +45,6 @@ Testing with YARR
 Use the [scanConsole](https://yarr.readthedocs.io/en/latest/scanconsole) for all tunings and scans following [this tuning routine](https://yarr.readthedocs.io/en/latest/rd53a#tuning-routine).
 Run each scan and tuning **by hand**, observe the output in the terminal and look at the plots after scanConsole is finished. Look into the chip configuration and make sure the threshold DAC for each frontend makes sense.  
 Please use the [ROOT scripts](https://yarr.readthedocs.io/en/latest/rootscripts) (Threshold and NoiseMap) to produce fitted plots which show separate the data for each FE in pdf format and for all pixels in differential frontend.
-
 
 
 Testing with BDAQ

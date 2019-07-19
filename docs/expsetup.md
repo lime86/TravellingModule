@@ -29,9 +29,6 @@ The analog and digital channels of the chip can be powered separately with one c
 
 ![LV](images/powerAD.jpg)
 
-The probing points on the SCC are shown below.
-
-![SCC](images/SCC_labeled.jpg)
 
 
 ## Readout systems
