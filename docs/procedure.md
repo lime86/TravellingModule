@@ -68,8 +68,9 @@ In this step you will trim the reference current and supplied internal voltages 
 
 ## <a id="iref"></a>IREF trim
 
+   * <span style="color:red"><b>CAUTION:</b> Injecting current into the IREF instead of measuring it could permanently damage the chip. <b>DO NOT</b> attempt to measure the current across IREF if you are unsure how to!!</span>
+
 **Tasks**:
-<span style="color:red"><b>CAUTION:</b> Injecting current into the IREF instead of measuring it could permanently damage the chip. <b>DO NOT</b> attempt to measure the current across IREF if you are unsure how to!!</span>
    
    1. Power down the LV supply.
    2. On the SCC, remove the jumper across the pin header labeled `IREF_IO` (see photo). 
