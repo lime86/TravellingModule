@@ -18,7 +18,7 @@ These basic tasks should be performed upon recieving the package:
 
    1. Please note in the table, [here](https://twiki.cern.ch/twiki/bin/viewauth/Atlas/ContactDetails) when the module was recieved.
    2. Please take photos of the package, as well as performing a visual inspection of the module, being careful to note down (and photograph) any scratches or damage on the board. In addition, please check the wire bond connections under a microscope to make sure there is no detachment during transport.
-   3. Check that the jumpers on the Single Chip Card (SCC) are correct. Complete SCC configuration is listed [here](https://twiki.cern.ch/twiki/pub/RD53/RD53ATesting/RD53A_SCC_Configuration.pdf) (note that it does not mention the `PLL_RST` pin header, which should have a jumper across it. Check page 3, which has a diagram of the jumpers.). In particular, note:
+   3. Check that the jumpers on the Single Chip Card (SCC) are correct. Complete SCC configuration is listed [here](https://twiki.cern.ch/twiki/pub/RD53/RD53ATesting/RD53A_SCC_Configuration.pdf) (Note that `PLL_RST` jumper is missing on the diagrams, which however should be there as mentioned in the recommended configuration.) In particular, note:
       * <span style="color:red">The pin headers labelled `PWR_A` and `PWR_D` (outlined in red box in image) should both be set to `VINA` and `VIND`, respectively. This is done by setting the jumper to connect the left and middle pin for each set of three pins (when the board is orientated as seen in the photo). <b>Setting these jumpers ensures the voltage regulators are used during operation. Setting these incorrectly could lead to permanent damage in the chip.</b></color> 
       * Check that the PLL and CML drivers are being powered from VDDA by setting VDD_PLL_SEL and VDD_CML_SEL to VDDA, respectively (left most pins for each set of 6 in yellow box in photo).  
       * Make sure, for normal operation, that both the `VREF_ADC` and `IREF_IO` pin headers both have jumpers on them.
@@ -54,7 +54,7 @@ Next, edit the configuration (config) file used for these tests. BDAQ and YARR u
    1. Please change the chip name in the config to the serial number of your chip (e.g. 0x495 for traveling module 3). The chip name in each config file is:
       * ``"Name": `` in YARR
       * ``chip_sn: `` in BDAQ
-   2. Run a digital scan and check the output - this is just to see if you can communicate with the chip and to test your basic setup. If you have any chip communication problems it may be that the internal voltages supplied from the LDO is too low, which will be fixed in the next step.
+   2. Run a digital scan and check the output - this is just to see if you can communicate with the chip and to test your basic setup. If you have any chip communication problems it may be that the internal voltages supplied from the LDO is not adequate, which will be fixed in the next step.
 
 <a id="trim"></a>
 
@@ -95,14 +95,12 @@ If you previously were not able to configure the chip, it may be because the int
 **Tasks**: 
 
    1. Power up the chip and configure it with the same config file you used previously.
-   2. Using a voltmeter, probe VDDA with respect to ground. You can find the VDDA test pin on the third pin of `PRW_A`. There are multiple ground references on the board, such as the top-most pin of the `SLDO_PLL_MON` array (see photo).
-   3. If the voltage is too low (1.2 V at minimum), increase it by editing the trim in the chip config file:
-       * YARR: increase ``SldoAnalogTrim``.
-	   * BDAQ: increase ``VREF_A_TRIM``.
-   4. Re-configure the chip and repeat steps (2) and (3) until VDDA is ~1.2 V.
-   5. Repeat steps (2)-(4) for VDDD. This time measure the third pin of `PRW_D` and edit the following trims:
-      * YARR: ``SldoDigitalTrim``
-      * BDAQ: ``VREF_D_TRIM``.
+   2. Using a voltmeter, probe VDDA/D with respect to ground. You can find the VDDA/D test pin on the third pin of `PRW_A/D` as pointed out on the picture. There are multiple ground references on the board, such as the top-most pin of the `SLDO_PLL_MON` array or any Lemo case.
+   3. If the voltage is not 1.2 V, edit the respective trim in the chip config file:
+       * YARR: ``SldoAnalogTrim`` for VDDA and ``SldoDigitalTrim`` for VDDD.
+	   * BDAQ: ``VREF_A_TRIM`` for VDDA and ``VREF_D_TRIM`` for VDDD.
+   4. Re-configure the chip and repeat steps (2) and (3) until VDDA is as close to 1.2 V as possible.
+   5. If communication issues still persist, e.g. ``data not valid`` in YARR, try to increase or decrease VDDA slightly until these disappear.
    6. **Record both the voltages measured and the final trim values used.** 
 
 If, however, after trimming the voltages you are still unable to communicate with the chip having tried these measures, please see [FAQ & Troubleshooting](../troubleshooting).
@@ -116,7 +114,7 @@ After the IREF and voltage references have been trimmed accordingly, we are read
    1. Power-cycle the chip and record the current drawn when the LV supply is powered, before the chip is configured.
    2. Record the current drawn by the chip on the LV supply after the chip is configured. 
 
-For the traveling module, we require that all three FE variants (differential, linear, and synchronous) on RD53A module are tuned. Whilst running these scans, the temperature of the chip should be monitored visa the `TP_NTC` pin header (see experimental setup for details). This temperature log, as well as the output of the scans listed below, should all be saved to the database. 
+For the travelling module, we require that all three FE variants (differential, linear, and synchronous) on RD53A module are tuned. Whilst running these scans, the temperature of the chip should be monitored via the `TP_NTC` pin header (see experimental setup for details). This temperature log, as well as the output of the scans listed below, should all be saved to the database. 
 The general scan procedure is as follows:
 
 
