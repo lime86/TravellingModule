@@ -102,7 +102,7 @@ Tasks:
    voltages supplied from the LDO is not adequate, which will be fixed
    in the next step.
 
-.. figure:: images/SCC_labeleds.jpg
+.. figure:: images/SCC_labeled.jpg
    :alt: image SCC labeled
 
    image SCC labeled
