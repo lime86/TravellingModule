@@ -8,7 +8,7 @@ The procedure consists of:
    * [Trim IREF, VREF and voltage regulators](#trim)
    * [Scans](#scans) (including pre-tune scans, tuning, and post-tuning scans) & plotting
 
-[Here is a checklist](files/travellingModule_checklist.pdf) to keep track of all the tasks. We suggest printing it out to tick off items whilst testing.   
+[Here is a checklist](files/travelingModule_testChecklist.pdf) to keep track of all the tasks. We suggest printing it out to tick off items whilst testing.   
 
 <a id="recInsp"></a>  
 
