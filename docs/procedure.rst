@@ -1,5 +1,5 @@
-Overview
-========
+Testing Procedure
+=================
 
 This page will cover the full testing procedure expected of sites
 receiving the travelling module. The procedure consists of:
@@ -51,10 +51,9 @@ These basic tasks should be performed upon receiving the package:
    -  Finally, ensure that there is a jumper across the ``PLL_RST`` pin
       header.
 
-      .. figure:: images/SCC_JumperConfiguration_edited.jpg
+      .. figure:: ../images/SCC_JumperConfiguration_edited.jpg
          :alt: pins
 
-         pins
 
 Basic communication
 ===================
