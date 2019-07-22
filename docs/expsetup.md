@@ -7,7 +7,7 @@ create a page on this Twiki and describe their setup in a free form in
 as much detail as practically needed. General considerations are as
 follows.
 
-## For the chip:
+## For the chip
 
 -   Good quality single or dual channel laboratory power supply capable
     of providing 1.8V @ 1A on each channel.
@@ -40,7 +40,7 @@ Connect the miniDisplayPort to port A of the Ohio card.
 Connect the DisplayPort connector on the single chip card (SCC) to the "DP_ML 1" port on the BDAQ board.  
 Detailed BDAQ hardware setup can be found [here](https://gitlab.cern.ch/silab/bdaq53/wikis/home#hardware-setup).
 
-### Quick Guide
+#### Quick Guide
 
 To power the BDAQ board, you can use either USB or a dedicated 5V powersupply.
 Select the powering method accordingly with the jumper next to the VDC input on the board.
