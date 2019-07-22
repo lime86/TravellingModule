@@ -38,16 +38,14 @@ With the chip inspected and jumpers set correctly on the SCC, make a quick check
 	mode at **1.8V**. *If using direct powering (not recommended) DO NOT exceed 1.3V, anything higher will likely to
 	result in <b>permanent damage</b>.*
 
-Connect the **Low Voltage (LV)** supply via Molex to the `PWR_IN` connector, as shown in the photo below. If you are unclear as to how to set up your LV supply, please see the instructions in [Experimental setup](expsetup.md). Connect the SCC to your readout system (be it YARR or BDAQ) using a displayport connector, as seen in the photo. 
-
-![connectors](images/SCC_connectorsEdited.jpeg)
+Connect the **Low Voltage (LV)** supply via Molex to the `PWR_IN` connector, as shown in the photo below. If you are unclear as to how to set up your LV supply, please see the instructions in [Experimental setup](expsetup.md). Connect the SCC to your readout system (be it YARR or BDAQ) using a displayport connector, as seen in the photo below.
 
 Next, edit the configuration (config) file used for these tests. BDAQ and YARR use *different* default configs:
 
    * YARR uses: [rd53a_TravellingChip.json](files/rd53a_TravellingChip.json)
    * BDAQ uses: [rd53a_TravellingChip.cfg.yaml](files/rd53a_TravellingChip.cfg.yaml)
 
-**NB**: To enable an easier comparison between the two systems these configs differ from the default configs found in both systems according to [these guidelines](https://twiki.cern.ch/twiki/bin/viewauth/RD53/RD53ATesting#Guidelines_for_Front_ends). 
+**NB**: To enable an easier comparison between the two systems these configs differ from the default configs found in both systems according to [these guidelines](https://twiki.cern.ch/twiki/bin/viewauth/RD53/RD53ATesting#Guidelines_for_Front_ends) (5uA/pixel inner layer). 
 
 ### <a id="commTasks"></a>Tasks:
 
@@ -56,12 +54,12 @@ Next, edit the configuration (config) file used for these tests. BDAQ and YARR u
       * ``chip_sn: `` in BDAQ
    2. Run a digital scan and check the output - this is just to see if you can communicate with the chip and to test your basic setup. If you have any chip communication problems it may be that the internal voltages supplied from the LDO is not adequate, which will be fixed in the next step.
 
+![image SCC labeled](images/SCC_labeleds.jpg)
+
 <a id="trim"></a>
 
 Trim IREF, VREF_ADC and the voltage regulators
 =======================================================
-
-![measurePins](images/SCC_labeled_yellowLabels.jpg)
 
 In this step you will trim the reference current and supplied internal voltages by (a) measuring either a current or voltage and (b) modifing the jumpers on the board or parameters in the configuration file. 
 
@@ -74,7 +72,7 @@ In this step you will trim the reference current and supplied internal voltages 
    
    1. Power down the LV supply.
    2. On the SCC, remove the jumper across the pin header labeled `IREF_IO` (see photo). 
-   3. Set up a current measuring device such as the [Keithley 2400](http://research.physics.illinois.edu/bezryadin/labprotocol/Keithley2400Manual.pdf) and set it up to **measure** a current. Please do not use a simple multimeter for this task as it is not accurate enough. Ensure that the range of the device is set to measure at least 4 μA, on the Keithley this is achieved by setting the measurement display range to at least 10 μA. 
+   3. Set up a current measuring device such as the [Keithley 2400](http://research.physics.illinois.edu/bezryadin/labprotocol/Keithley2400Manual.pdf) and set it up to **measure** a current. Please do not use a simple multimeter for this task as it is usually not accurate enough. Ensure that the range of the device is set to measure at least 4 μA, on the Keithley this is achieved by setting the measurement display range to at least 10 μA. 
    4. Connect the current-measuring device to the `IREF_IO` pin headers. 
    5. Power up the LV supply as before and measure the current. 
    6. If the current is NOT 4.0 μA you can trim it using the `IRE_TRIM` bits on the SCC. This is a 4-bit register, so you can use multiple jumpers to trim.
@@ -154,7 +152,6 @@ Please use the [ROOT scripts](https://yarr.readthedocs.io/en/latest/rootscripts)
 
 
 ## Testing with BDAQ
-=====================
 
 Follow instructions
 [here](https://gitlab.cern.ch/silab/bdaq53/wikis/User-guide/General-usage).
@@ -177,29 +174,26 @@ for each FE step.
 Pixel threshold tuning uses ``meta_tune_local_threshold.py``.
 
 
-<a id="other"></a> Detailed instructions:
--------------------------------------------
-### <a id="other2"></a>Preparing the module
+### <a id="other"></a> Detailed instructions:
+
+#### <a id="other2"></a>Preparing the module
 
 Observe the BDAQ board. On the FPGA daughterboard there should be 4 LEDs labeled 0-3. LEDs 0 and 1 should be lit up, while LED 3 should be off and LED 4 should be flashing. Once you turn on the powersupply of the SCC, LED4 should stop flashing and either turn off permanently or all four LEDs should be constantly on.
 
 
-### <a id="other3"></a>Trimming your chip
-=======
-
-### Trimming your chip
+#### <a id="other3"></a>Trimming your chip
 
 In addition to trimming VREF_ADC and VDDA/D by hand as described above, you can acquire these settings by either using the ``calibrate_vref.py`` and ``calibrate_vref_adc.py`` routines of BDAQ53.
 
 
-### <a id="other4"></a>Preparing the module configuration file
+#### <a id="other4"></a>Preparing the module configuration file
 
 Download the default chip configuration file from above and make a copy of it, naming it according to the chip you are testing. For example, if you have travelling module #1 with chip serial number 0x0494, name your copy ``0x0494.cfg.yaml``. Open your freshly created copy and enter the optimal trimbit settings you acquired in the last step in the trim section of the file.
 Make sure that the global threshold DACs are set to a safe threshold of >3000e: e.g. VTH_SYNC: 390, Vthreshold_LIN: 415, VTH1_DIFF: 600.
 The file will be automatically picked up if its name matches the chip serial number you enter into testbench.yaml in the next step. 
 
 
-### <a id="other5"></a>Preparing the output directory
+#### <a id="other5"></a>Preparing the output directory
 Create a directory on your PC that will be used for all BDAQ53 output files. Open ``bdaq53/bdaq53/testbench.yaml`` with any text editor and in the **general section**, set
 
 - chip_sn to the serial number of the chip / module you are going to test,
@@ -208,7 +202,7 @@ Create a directory on your PC that will be used for all BDAQ53 output files. Ope
 
 Copy the configuration file you downloaded or created in the previous step to the output directory. This way, the configuration file is used for the very first scan. After that, the configuration is passed through consecutive scans.
 
-### <a id="other6"></a>Testing the setup
+#### <a id="other6"></a>Testing the setup
 
 To make sure everything works as expected, test the setup by changing to ``bdaq53/bdaq53/scans`` and opening ``scan_digital.py``. Verify that the region of interest is defined as  
 ```yaml
