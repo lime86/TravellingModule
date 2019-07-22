@@ -29,18 +29,15 @@ The analog and digital channels of the chip can be powered separately with one c
 
 ![LV](images/powerAD.jpg)
 
-The probing points on the SCC are shown below.
-
-![SCC](images/SCC_labeled.jpg)
-
 
 ## Readout systems
 
 ### YARR
-
+Connect the miniDisplayPort to port A of the Ohio card.
 
 ### BDAQ
 
+Connect the DisplayPort connector on the single chip card (SCC) to the "DP_ML 1" port on the BDAQ board.  
 Detailed BDAQ hardware setup can be found [here](https://gitlab.cern.ch/silab/bdaq53/wikis/home#hardware-setup).
 
 ### Quick Guide

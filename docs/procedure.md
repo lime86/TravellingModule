@@ -1,20 +1,20 @@
 Overview
 =========
-This page will cover the full testing procedure expected of sites receiving the traveling module.
+This page will cover the full testing procedure expected of sites receiving the travelling module.
 The procedure consists of:
 
    * [Reception inspection](#recInsp)
    * [Basic communication](#basicComm)
-   * [Trim IREF and voltage regulators](#trim)
+   * [Trim IREF, VREF and voltage regulators](#trim)
    * [Scans](#scans) (including pre-tune scans, tuning, and post-tuning scans) & plotting
 
-[Here is a checklist](files/travelingModule_checklist.pdf) to keep track of all the tasks. We suggest printing it out to tick off items whilst testing.   
+[Here is a checklist](files/travellingModule_checklist.pdf) to keep track of all the tasks. We suggest printing it out to tick off items whilst testing.   
 
 <a id="recInsp"></a>  
 
 Reception inspection
 ======================
-These basic tasks should be performed upon recieving the package:
+These basic tasks should be performed upon receiving the package:
 
    1. Please note in the table, [here](https://twiki.cern.ch/twiki/bin/viewauth/Atlas/ContactDetails) when the module was recieved.
    2. Please take photos of the package, as well as performing a visual inspection of the module, being careful to note down (and photograph) any scratches or damage on the board. In addition, please check the wire bond connections under a microscope to make sure there is no detachment during transport.
@@ -47,18 +47,18 @@ Next, edit the configuration (config) file used for these tests. BDAQ and YARR u
    * YARR uses: [rd53a_TravellingChip.json](files/rd53a_TravellingChip.json)
    * BDAQ uses: [rd53a_TravellingChip.cfg.yaml](files/rd53a_TravellingChip.cfg.yaml)
 
-**NB**: To enable an easier comparison between the two systems these comfigs differ from the default configs found in both systems according to [these guidelines](https://twiki.cern.ch/twiki/bin/viewauth/RD53/RD53ATesting#Guidelines_for_Front_ends). 
+**NB**: To enable an easier comparison between the two systems these configs differ from the default configs found in both systems according to [these guidelines](https://twiki.cern.ch/twiki/bin/viewauth/RD53/RD53ATesting#Guidelines_for_Front_ends). 
 
 ### <a id="commTasks"></a>Tasks:
 
-   1. Please change the chip name in the config to the serial number of your chip (e.g. 0x495 for traveling module 3). The chip name in each config file is:
+   1. Please change the chip name in the config to the serial number of your chip (e.g. 0x495 for travelling module 3). The chip name in each config file is:
       * ``"Name": `` in YARR
       * ``chip_sn: `` in BDAQ
    2. Run a digital scan and check the output - this is just to see if you can communicate with the chip and to test your basic setup. If you have any chip communication problems it may be that the internal voltages supplied from the LDO is not adequate, which will be fixed in the next step.
 
 <a id="trim"></a>
 
-Trim IREF, the voltage regulators, and the ADC voltage
+Trim IREF, VREF_ADC and the voltage regulators
 =======================================================
 
 ![measurePins](images/SCC_labeled_yellowLabels.jpg)
@@ -74,16 +74,16 @@ In this step you will trim the reference current and supplied internal voltages 
    
    1. Power down the LV supply.
    2. On the SCC, remove the jumper across the pin header labeled `IREF_IO` (see photo). 
-   3. Set up a current measuring device such as the [Keithley 2400](http://research.physics.illinois.edu/bezryadin/labprotocol/Keithley2400Manual.pdf) and set it up to **measure** a current. Please do not use a simple multimeter for this task. Ensure that the range of the device is set to measure at least 4 μA, on the Keithley this is achieved by setting the measurement display range to at least 10 μA. 
+   3. Set up a current measuring device such as the [Keithley 2400](http://research.physics.illinois.edu/bezryadin/labprotocol/Keithley2400Manual.pdf) and set it up to **measure** a current. Please do not use a simple multimeter for this task as it is not accurate enough. Ensure that the range of the device is set to measure at least 4 μA, on the Keithley this is achieved by setting the measurement display range to at least 10 μA. 
    4. Connect the current-measuring device to the `IREF_IO` pin headers. 
    5. Power up the LV supply as before and measure the current. 
-   6. If the current is NOT 4.0 μA you can trim it using the `IRE_TRIM` bits. This is a 4-bit register, so you can use multiple jumpers to trim.
+   6. If the current is NOT 4.0 μA you can trim it using the `IRE_TRIM` bits on the SCC. This is a 4-bit register, so you can use multiple jumpers to trim.
    7. **Make note of the final jumper configuration on `IREF_TRIM` and the current measurement.**
    8. Power down the LV supply, disconnect the connectors to `IREF_IO`, and replace the jumper across `IREF_IO`.
 
 ## <a id="VREF_ADC"></a>VREF_ADC trim
 
-Measure the jumper with the label ``VREF_ADC`` against GND. Adjust the DACs so that this value is as close to **0.9 V** as possible.
+Measure the jumper with the label ``VREF_ADC`` against GND. Adjust the DACs so that this value is as close to **0.9 V** as possible. This step is essential for the threshold tunings to be correct.
 
 - YARR: ``AdcRefTrim``
 - BDAQ: ``MON_BG_TRIM``
@@ -114,41 +114,47 @@ After the IREF and voltage references have been trimmed accordingly, we are read
    1. Power-cycle the chip and record the current drawn when the LV supply is powered, before the chip is configured.
    2. Record the current drawn by the chip on the LV supply after the chip is configured. 
 
-For the travelling module, we require that all three FE variants (differential, linear, and synchronous) on RD53A module are tuned. Whilst running these scans, the temperature of the chip should be monitored via the `TP_NTC` pin header (see experimental setup for details). This temperature log, as well as the output of the scans listed below, should all be saved to the database. 
+For the travelling module, we require that all three FE variants (synchronous, linear and differential) on RD53A module are tuned. Whilst running these scans, the temperature of the chip should be monitored via the `TP_NTC` pin header (see experimental setup for details). This temperature log, as well as the output of the scans listed below, should all be saved to the database. 
 The general scan procedure is as follows:
-
 
    * **Pre-tuning scans** should be run over all frontends: 
 
       * Digital scan
       * Analog scan
-      * Threshold scan <br />
+      * Threshold scan
    
-   * **Tuning scans** should be performed on each frontend separately. The tuning of the linear frontend has to start with _2000e_ and retuned to _1000e_ (execute step 1 and 2 with _2000e_ and repeat with _1000e_). The threshold of all three FE can be tuned to _1k e_. This is the recommended value for the travelling module. The ToT should be tuned to _8 bunch crossings_ at _10k electrons_:
+   * **Tunings** should be performed on each frontend separately. The threshold of all three FE can be tuned to **1000e**. For the linear frontend the tuning has to start with _2000e_ and retuned to _1000e_ for both global and pixel threshold tunings. The ToT should be tuned to **8BC** at **10000e**:
 
       1. Global threshold tuning
       2. Pixel threshold tuning (not for syncFE)
       3. Time over threshold tuning
-      4. Re-adjust pixel threshold
+      4. Re-adjust pixel threshold (not for syncFE)
    
    * **Post-tuning** scans should be run over all frontends:
 
       * Threshold scan
       * ToT scan
-      * Noise scan <br />
+      * Noise scan
 
    * **Post processing (YARR ONLY)**: plot threshold and noise distributions with ROOT scripts.
 
-Either YARR or BDAQ can be used to run these scans. The rest of this page describes how to do this with both systems.
+Either YARR or BDAQ can be used to run these scans. The rest of this page describes how to do this with both systems. When running threshold scan, make sure the range of injected charge covers the expected threshold. The conversion is approximately 1 DAC = 10 electrons.
+
+- YARR: ``InjVcalDiff``
+- BDAQ: the difference between ``VCAL_MED`` and ``VCAL_HIGH``
+
 
 ## Testing with YARR
 
 Use the [scanConsole](https://yarr.readthedocs.io/en/latest/scanconsole) for all tunings and scans following [this tuning routine](https://yarr.readthedocs.io/en/latest/rd53a#tuning-routine).
 Run each scan and tuning **by hand**, observe the output in the terminal and look at the plots after scanConsole is finished. Look into the chip configuration and make sure the threshold DAC for each frontend makes sense.  
-Please use the [ROOT scripts](https://yarr.readthedocs.io/en/latest/rootscripts) (Threshold and NoiseMap) to produce fitted plots which show separate the data for each FE in pdf format and for all pixels in differential frontend.
+For pixel tuning, make sure to run ``FE_tune_finepixelthreshold.json`` after ``FE_retune_pixelthreshold.json`` for each frontend.  
+Before running the noise scan, please look into the pixel configuration section in the chip configuration file and make sure that not all pixels are disabled. If they are, simply run another digital scan with ``-m 1`` to reset the enable mask followed by a normal analog scan.  
+Please use the [ROOT scripts](https://yarr.readthedocs.io/en/latest/rootscripts) (Threshold and NoiseMap) to produce fitted plots which show separate the data for each FE in pdf format and only the good pixels in differential frontend.
 
 
 ## Testing with BDAQ
+=====================
 
 Follow instructions
 [here](https://gitlab.cern.ch/silab/bdaq53/wikis/User-guide/General-usage).
@@ -160,9 +166,7 @@ and save the results before and after tuning. For FE specific scans and
 tunings, adjust ``'start_column'`` and ``'stop_column'`` in the scan code
 accordingly.
 
-For any tuning, the electron equivalence of injected charge is roughly
-10 times the difference between ``VCAL_MED`` and ``VCAL_HIGH``. Pay
-attention to the scanning range and adjust `VCAL_HIGH_start` and
+Pay attention to the scanning range and adjust `VCAL_HIGH_start` and
 ``VCAL_HIGH_stop`` in the ``local_configuration`` section of the scan code
 accordingly.
 
@@ -175,20 +179,17 @@ Pixel threshold tuning uses ``meta_tune_local_threshold.py``.
 
 <a id="other"></a> Detailed instructions:
 -------------------------------------------
-TODO: this seems like a lot of repeated information! Can we link to BDAQ documentation instead?
 ### <a id="other2"></a>Preparing the module
-
-Connect the DP1 connector on the single chip card (SCC) to the “DP_ML 1”
-connector on the BDAQ board using a standard DisplayPort (DP) cable.  
-
-Make sure the SCC is jumpered for the correct powering mode and your power supply
-is setup accordingly.
 
 Observe the BDAQ board. On the FPGA daughterboard there should be 4 LEDs labeled 0-3. LEDs 0 and 1 should be lit up, while LED 3 should be off and LED 4 should be flashing. Once you turn on the powersupply of the SCC, LED4 should stop flashing and either turn off permanently or all four LEDs should be constantly on.
 
-### <a id="other3"></a>Trimming your chip
 
-In order to have your chip working at optimal conditions, you have to trim IREF, VREF_A and VREF_D, as well as VREF_ADC. IREF is the reference current for all DACs on the chip. VREF_A/D are the regulator reference voltages, which determine the analog and digital supply voltage of the chip (VDDA and VDDD) that will be generated by the regulators in (shunt-)LDO mode. VREF_ADC is the reference voltage for the internal ADC circuit as well as the charge injection circuit. If this reference is not trimmed correctly, the chip charge calibration and therefore the electron scale in any plot will be wrong! You can acquire these settings by either using the ``calibrate_vref.py`` and ``calibrate_vref_adc.py`` routines of BDAQ53 or manual trimming (see [wiki]( https://gitlab.cern.ch/silab/bdaq53/wikis/User-guide/Trimming-VREF)).
+### <a id="other3"></a>Trimming your chip
+=======
+
+### Trimming your chip
+
+In addition to trimming VREF_ADC and VDDA/D by hand as described above, you can acquire these settings by either using the ``calibrate_vref.py`` and ``calibrate_vref_adc.py`` routines of BDAQ53.
 
 
 ### <a id="other4"></a>Preparing the module configuration file
@@ -208,6 +209,7 @@ Create a directory on your PC that will be used for all BDAQ53 output files. Ope
 Copy the configuration file you downloaded or created in the previous step to the output directory. This way, the configuration file is used for the very first scan. After that, the configuration is passed through consecutive scans.
 
 ### <a id="other6"></a>Testing the setup
+
 To make sure everything works as expected, test the setup by changing to ``bdaq53/bdaq53/scans`` and opening ``scan_digital.py``. Verify that the region of interest is defined as  
 ```yaml
 	'start_column': 0,
