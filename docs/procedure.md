@@ -54,6 +54,8 @@ Next, edit the configuration (config) file used for these tests. BDAQ and YARR u
       * ``chip_sn: `` in BDAQ
    2. Run a digital scan and check the output - this is just to see if you can communicate with the chip and to test your basic setup. If you have any chip communication problems it may be that the internal voltages supplied from the LDO is not adequate, which will be fixed in the next step.
 
+
+<a id="scc_label"></a>
 ![image SCC labeled](images/SCC_labeled.jpg)
 
 <a id="trim"></a>

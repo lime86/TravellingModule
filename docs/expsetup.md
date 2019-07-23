@@ -48,3 +48,8 @@ When using USB, also a USB 2.0 cable is fine, but the USB powersupply or port ha
 
 Connect the BDAQ53 base board to the readout PC using a standard Ethernet cable (>= CAT6). For the best experience,
 use an additional ethernet interface on your PC (either PCIe or USB3, though it has to be 1000BASE-T – Gigabit ethernet) and the “ETH” port on the BDAQ board next to the USB3 port.
+
+
+## Temperature Monitoring
+
+There is an NTC next to the chip on the Single Chip Card (SCC) with the testing pins as pointed out on the [photo](#scc_label). The datasheet of the NTC can be found [here](https://www.mouser.de/datasheet/2/362/ktthermistor-3035.pdf). It is possible to measure the resistance and convert it to temperature according to the datasheet, or measure the voltage drop using an Arduino.
