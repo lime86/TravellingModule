@@ -156,7 +156,7 @@ Please use the [ROOT scripts](https://yarr.readthedocs.io/en/latest/rootscripts)
 ## Testing with BDAQ
 
 Follow instructions
-[here](https://gitlab.cern.ch/silab/bdaq53/wikis/User-guide/General-usage).
+[here](https://gitlab.cern.ch/silab/bdaq53/wikis/A%20User%20guide/2.-General-usage).
 You can either execute with e.g. ``bdaq53 scan_digital`` or
 ``python scan_digital.py``.
 
