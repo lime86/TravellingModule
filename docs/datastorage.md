@@ -2,12 +2,13 @@ Data Storage
 ============
 
 The final tuning data of the travelling chips and modules should be stored in a common database. For the moment it is a CERNbox as described below.
-If you used YARR, please produce ROOT plots using the provided plotting scripts and upload them as well.
+If you used YARR, please produce ROOT plots using the provided plotting scripts and upload them as well.  
+<span style="color:red">Note: please don't upload any raw data (.h5 in BDAQ) and (.raw in YARR) due to their large size.</span>
 
 Final full set of data to be uploaded:
 
 - Pre-tuning scans (incl. YARR ROOT plots)
-- Tunings
+- Tunings (BDAQ: only the last threshold scan from local threshold tuning)
 - Post-tuning scans (incl. YARR ROOT plots)
 - Temperature monitoring data
 - Notes on power consumption of the chip before and after configuration
