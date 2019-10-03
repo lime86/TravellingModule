@@ -5,6 +5,8 @@ The travel pack consists of several items all enclosed in a bright
 yellow Pelican case. Please familiarise yourself with the content
 [here](https://twiki.cern.ch/twiki/bin/view/Atlas/TravelPack).
 
+Please note: for reading out the temperature and impact loggers Windows is required for the softwares.
+
 Padlock
 -------
 
@@ -19,8 +21,18 @@ What is the code for the padlock
 
 Temperature Logger
 ------------------
-Details on the temperature logger can be found [here](https://mindsetsonline.co.uk/shop/mini-temperature-datalogger)
+Details on the temperature logger can be found [here](https://mindsetsonline.co.uk/shop/mini-temperature-datalogger).
 
+On receiving the temperature logger, please read and save the recorded data. Before shipping, reset it and set the readout frequency (8192 data points) according to the estimated shipping time. E.g. one data point per minute allows recording data for 5.7 days.
+
+
+Impact Logger
+-------------
+Details on the impact logger can be found [here](http://www.extech.com/display/?id=14797).
+
+On receiving the impact logger, please read and save the recorded data. Then reset the logger with the setting as shown in the picture below. Before shipping, press the button to activate the logging.
+
+![impact logger](images/logger_impact_setting.png)
 
 Chip 1
 ------
