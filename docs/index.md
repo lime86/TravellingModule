@@ -39,7 +39,7 @@ module for quick support. Join
 [here](https://mattermost.web.cern.ch/signup_user_complete/?id=ujzsdu51p3nuirqp7h5bkjo5ay).
 
 ### YARR
-Please use release v1.0.0 (master branch).
+Please use release v1.1.0.
 General YARR documentation can be found on
 [readthedocs](https://yarr.readthedocs.io). For YARR specific questions
 and problems there is a [Mattermost
