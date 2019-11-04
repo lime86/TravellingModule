@@ -3,7 +3,7 @@ Experimental Setup
 
 Experimental setups will inevitably differ from site to site depending
 on equipment availability. It is recommended for each organisation to
-create a page on this Twiki and describe their setup in a free form in
+create a page on [this twiki](https://twiki.cern.ch/twiki/bin/view/Atlas/CharacterisationSetups) and describe their setup in a free form in
 as much detail as practically needed. General considerations are as
 follows.
 
