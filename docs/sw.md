@@ -9,7 +9,7 @@ each of the system separately, depending on the system at hand.
 YARR-based system
 -----------------
 
-Use the tagged version [v1.0.0](https://gitlab.cern.ch/YARR/YARR/tree/v1.0.0) (master) and follow the instructions on
+Use the tagged version [v1.1.0](https://gitlab.cern.ch/YARR/YARR/tree/v1.1.0) (master) and follow the instructions on
 [software installation](https://yarr.readthedocs.io/en/latest/install) and [kernel driver installation](https://yarr.readthedocs.io/en/latest/kernel_driver).
 
 To enjoy supplementary plotting scripts, install ROOT6 on your CentOS7
