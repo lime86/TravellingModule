@@ -52,4 +52,4 @@ use an additional ethernet interface on your PC (either PCIe or USB3, though it 
 
 ## Temperature Monitoring
 
-There is an NTC next to the chip on the Single Chip Card (SCC) with the testing pins as pointed out on the [photo](#scc_label). The datasheet of the NTC can be found [here](https://www.mouser.de/datasheet/2/362/ktthermistor-3035.pdf). It is possible to measure the resistance and convert it to temperature according to the datasheet, or measure the voltage drop using an Arduino.
+There is an NTC next to the chip on the Single Chip Card (SCC) with the testing pins as pointed out on the [photo](images/SCC_labeled.jpg). The datasheet of the NTC can be found [here](https://www.mouser.de/datasheet/2/362/ktthermistor-3035.pdf). It is possible to measure the resistance and convert it to temperature according to the datasheet, or measure the voltage drop using an Arduino.

@@ -41,7 +41,7 @@ module for quick support. Join
 ### YARR
 Please use release v1.1.0.
 General YARR documentation can be found on
-[readthedocs](https://yarr.readthedocs.io). For YARR specific questions
+[readthedocs](https://yarr.web.cern.ch). For YARR specific questions
 and problems there is a [Mattermost
 channel](https://mattermost.web.cern.ch/yarr) for discussions.
 
