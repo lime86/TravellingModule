@@ -146,11 +146,11 @@ Either YARR or BDAQ can be used to run these scans. The rest of this page descri
 
 ## Testing with YARR
 
-Use the [scanConsole](https://yarr.web.cern.ch/en/latest/scanconsole) for all tunings and scans following [this tuning routine](https://yarr.web.cern.ch/en/latest/rd53a#tuning-routine).
+Use the [scanConsole](https://yarr.web.cern.ch/yarr/scanconsole) for all tunings and scans following [this tuning routine](https://yarr.web.cern.ch/yarr/rd53a/#tuning-routine).
 Run each scan and tuning **by hand**, observe the output in the terminal and look at the plots after scanConsole is finished. Look into the chip configuration and make sure the threshold DAC for each frontend makes sense.  
 For pixel tuning, make sure to run ``FE_tune_finepixelthreshold.json`` after ``FE_retune_pixelthreshold.json`` for each frontend.  
 Before running the noise scan, please look into the pixel configuration section in the chip configuration file and make sure that not all pixels are disabled. If they are, simply run another digital scan with ``-m 1`` to reset the enable mask followed by a normal analog scan.  
-Please use the [ROOT scripts](https://yarr.web.cern.ch/en/latest/rootscripts) (Threshold and NoiseMap) to produce fitted plots which show separate the data for each FE in png format and only the good pixels in differential frontend.
+Please use the [ROOT scripts](https://yarr.web.cern.ch/yarr/plotting/) (Threshold and NoiseMap) to produce fitted plots which show separate the data for each FE in png format and only the good pixels in differential frontend.
 
 
 ## Testing with BDAQ
